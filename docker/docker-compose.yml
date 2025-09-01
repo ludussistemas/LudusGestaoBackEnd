@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # API Application
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: ludus_gestao_api
+    ports:
+      - "5000:80"
+      - "5001:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=ludusdb_dev;Username=ludus;Password=ludus123
+    volumes:
+      - ../:/src
+      - /src/bin
+      - /src/obj
+    depends_on:
+      - postgres
+    networks:
+      - ludus-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  ludus-network:
+    driver: bridge

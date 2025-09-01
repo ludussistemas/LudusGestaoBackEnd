@@ -1,0 +1,25 @@
+services:
+  - type: web
+    runtime: docker
+    name: ludus-gestao-api
+    repo: https://github.com/GuilhermePeritto/LudusGestao.git
+    branch: main
+    region: oregon
+    plan: free
+    dockerfilePath: ./docker/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://+:10000
+      - key: ConnectionStrings__DefaultConnection
+        value: Host=ep-bitter-voice-acqaripp-pooler.sa-east-1.aws.neon.tech; Database=neondb; Username=neondb_owner; Password=npg_AaejuhqD2fz5; SSL Mode=VerifyFull; Channel Binding=Require;
+      - key: Jwt__Issuer
+        value: SistemaReservasIssuer
+      - key: Jwt__Audience
+        value: SistemaReservasAudience
+      - key: Jwt__Key
+        value: ludus-sistemas-chave-super-secreta-2024 
