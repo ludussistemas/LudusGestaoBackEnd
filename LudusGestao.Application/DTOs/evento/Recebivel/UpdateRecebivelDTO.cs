@@ -1,9 +1,8 @@
 // Arquivo criado para padronização da estrutura de DTOs 
 
-namespace LudusGestao.Application.DTOs.Recebivel;
-using System;
-using LudusGestao.Domain.Enums;
+namespace LudusGestao.Application.DTOs.evento.Recebivel;
 using LudusGestao.Domain.Enums.eventos;
+using System;
 
 public class UpdateRecebivelDTO
 {
@@ -13,4 +12,4 @@ public class UpdateRecebivelDTO
     public DateTime DataVencimento { get; set; }
     public SituacaoRecebivel Situacao { get; set; }
     public Guid? ReservaId { get; set; }
-} 
+}

@@ -5,4 +5,4 @@ namespace LudusGestao.Domain.Interfaces.Infrastructure
     {
         // Interface de marcador, sem dependências de EF
     }
-} 
+}

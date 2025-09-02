@@ -1,7 +1,5 @@
-using LudusGestao.Domain.Entities.Base;
+using LudusGestao.Core.Entities.Base;
 using LudusGestao.Domain.Enums.eventos;
-using LudusGestao.Domain.ValueObjects;
-using System;
 
 namespace LudusGestao.Domain.Entities.eventos
 {
@@ -16,4 +14,4 @@ namespace LudusGestao.Domain.Entities.eventos
         public SituacaoCliente Situacao { get; set; }
         public int TenantId { get; set; }
     }
-} 
+}

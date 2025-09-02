@@ -1,8 +1,6 @@
 namespace LudusGestao.Application.DTOs.Usuario;
-using System;
-using System.Collections.Generic;
-using LudusGestao.Domain.Enums;
 using LudusGestao.Domain.Enums.geral;
+using System;
 
 public class UsuarioDTO
 {
@@ -19,4 +17,4 @@ public class UsuarioDTO
     public Guid? GrupoPermissaoId { get; set; }
     public DateTime UltimoAcesso { get; set; }
     public string? Foto { get; set; }
-} 
+}

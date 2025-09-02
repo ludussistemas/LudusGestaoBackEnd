@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using LudusGestao.Core.Interfaces.Repositories.Base;
 using LudusGestao.Domain.Entities.eventos;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
 
 namespace LudusGestao.Domain.Interfaces.Repositories.eventos
 {
@@ -10,4 +7,4 @@ namespace LudusGestao.Domain.Interfaces.Repositories.eventos
     {
         Task<IEnumerable<Reserva>> GetReservasByClienteAsync(Guid clienteId);
     }
-} 
+}

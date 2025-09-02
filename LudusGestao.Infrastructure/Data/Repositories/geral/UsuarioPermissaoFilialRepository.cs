@@ -1,28 +1,22 @@
-using LudusGestao.Domain.Entities;
-using LudusGestao.Domain.Interfaces.Repositories;
+using LudusGestao.Core.Interfaces.Repositories.Base;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Infrastructure.Data.Context;
 using LudusGestao.Infrastructure.Data.Repositories.Base;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
 using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Interfaces.Repositories.geral;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.geral
 {
     public class UsuarioPermissaoFilialRepository : BaseRepository<UsuarioPermissaoFilial>, IUsuarioPermissaoFilialRepository
     {
         public UsuarioPermissaoFilialRepository(
-        ApplicationDbContext context, 
+        ApplicationDbContext context,
         ITenantService tenantService,
         ITenantFilter<UsuarioPermissaoFilial> tenantFilter,
         IQuerySorter<UsuarioPermissaoFilial> querySorter,
-        IEnumerable<IFilterStrategy> filterStrategies) 
+        IEnumerable<IFilterStrategy> filterStrategies)
         : base(context, tenantService, tenantFilter, querySorter, filterStrategies)
         {
         }
@@ -53,6 +47,13 @@ namespace LudusGestao.Infrastructure.Data.Repositories.geral
             var query = _context.Set<UsuarioPermissaoFilial>().AsQueryable();
             query = ApplyTenantFilter(query);
             return await query.Where(u => u.FilialId == filialId).ToListAsync();
+        }
+
+        public async Task<IEnumerable<UsuarioPermissaoFilial>> ObterPermissoesPorUsuarioAsync(Guid usuarioId)
+        {
+            var query = _context.Set<UsuarioPermissaoFilial>().AsQueryable();
+            query = ApplyTenantFilter(query);
+            return await query.Where(u => u.UsuarioId == usuarioId).ToListAsync();
         }
     }
 }

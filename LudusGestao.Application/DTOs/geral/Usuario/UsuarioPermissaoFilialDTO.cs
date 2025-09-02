@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace LudusGestao.Application.DTOs.Usuario
 {
     public class UsuarioPermissaoFilialDTO

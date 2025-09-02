@@ -1,13 +1,14 @@
 namespace LudusGestao.Domain.Enums.eventos
 {
     /// <summary>
-    /// Situações para reservas/agenda
+    /// Situações para reservas
     /// </summary>
     public enum SituacaoReserva
     {
-        Confirmado = 1,    // Cliente pagou
-        Concluido = 2,     // Pós término do evento
-        Pendente = 3,      // Confirmação pendente (ainda não pagou)
-        Cancelado = 4      // Cancelado
+        Pendente = 1,      // Reserva criada, aguardando confirmação
+        Confirmada = 2,    // Reserva confirmada
+        Cancelada = 3,     // Reserva cancelada
+        Finalizada = 4,    // Evento realizado
+        Expirada = 5       // Data passou sem confirmação
     }
-} 
+}

@@ -1,5 +1,5 @@
 using FluentValidation;
-using LudusGestao.Application.DTOs.Local;
+using LudusGestao.Application.DTOs.evento.Local;
 
 namespace LudusGestao.Application.Validators.evento.Local
 {
@@ -15,4 +15,4 @@ namespace LudusGestao.Application.Validators.evento.Local
             RuleFor(x => x.FilialId).NotEmpty().WithMessage("A filial é obrigatória.");
         }
     }
-} 
+}

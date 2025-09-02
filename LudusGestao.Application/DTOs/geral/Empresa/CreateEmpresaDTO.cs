@@ -1,6 +1,4 @@
-using LudusGestao.Domain.Enums;
 using LudusGestao.Domain.Enums.geral;
-using System;
 
 namespace LudusGestao.Application.DTOs.Empresa
 {
@@ -17,4 +15,4 @@ namespace LudusGestao.Application.DTOs.Empresa
         public string CEP { get; set; }
         public SituacaoBase Situacao { get; set; }
     }
-} 
+}

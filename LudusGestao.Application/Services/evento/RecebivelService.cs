@@ -1,20 +1,17 @@
 using AutoMapper;
-using LudusGestao.Application.DTOs.Recebivel;
+using LudusGestao.Application.DTOs.evento.Recebivel;
+using LudusGestao.Core.Interfaces.Infrastructure;
+using LudusGestao.Core.Interfaces.Repositories.Base;
+using LudusGestao.Core.Interfaces.Services;
+using LudusGestao.Core.Services;
 using LudusGestao.Domain.Entities.eventos;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
-using LudusGestao.Application.Common.Interfaces;
-using LudusGestao.Application.Common.Services;
-using LudusGestao.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace LudusGestao.Application.Services
 {
     public class RecebivelService : BaseCrudService<Recebivel, RecebivelDTO, CreateRecebivelDTO, UpdateRecebivelDTO>, IBaseCrudService<RecebivelDTO, CreateRecebivelDTO, UpdateRecebivelDTO>
     {
-        public RecebivelService(IBaseRepository<Recebivel> repository, IMapper mapper) : base(repository, mapper) { }
+        public RecebivelService(IBaseRepository<Recebivel> repository, IMapper mapper, IUnitOfWork unitOfWork) : base(repository, mapper, unitOfWork) { }
 
         // Adicione aqui apenas métodos customizados que não sejam CRUD padrão
     }
-} 
+}

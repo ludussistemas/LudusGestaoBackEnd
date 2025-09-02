@@ -14,4 +14,4 @@ namespace LudusGestao.Application.Validators.geral.Empresa
             RuleFor(x => x.CEP).NotEmpty();
         }
     }
-} 
+}

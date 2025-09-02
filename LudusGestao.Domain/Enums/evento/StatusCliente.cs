@@ -9,4 +9,4 @@ namespace LudusGestao.Domain.Enums.eventos
         Inativo = 2,
         Bloqueado = 3      // Cliente velhaco com títulos vencidos
     }
-} 
+}

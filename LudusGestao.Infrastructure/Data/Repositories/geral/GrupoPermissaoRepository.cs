@@ -1,28 +1,22 @@
-using LudusGestao.Domain.Entities;
-using LudusGestao.Domain.Interfaces.Repositories;
+using LudusGestao.Core.Interfaces.Repositories.Base;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Infrastructure.Data.Context;
 using LudusGestao.Infrastructure.Data.Repositories.Base;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
 using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Interfaces.Repositories.geral;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.geral
 {
     public class GrupoPermissaoRepository : BaseRepository<GrupoPermissao>, IGrupoPermissaoRepository
     {
         public GrupoPermissaoRepository(
-        ApplicationDbContext context, 
+        ApplicationDbContext context,
         ITenantService tenantService,
         ITenantFilter<GrupoPermissao> tenantFilter,
         IQuerySorter<GrupoPermissao> querySorter,
-        IEnumerable<IFilterStrategy> filterStrategies) 
+        IEnumerable<IFilterStrategy> filterStrategies)
         : base(context, tenantService, tenantFilter, querySorter, filterStrategies)
         {
         }
@@ -67,4 +61,4 @@ namespace LudusGestao.Infrastructure.Data.Repositories.geral
             }
         }
     }
-} 
+}

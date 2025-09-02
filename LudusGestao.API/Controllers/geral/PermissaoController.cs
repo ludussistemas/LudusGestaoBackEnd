@@ -1,11 +1,8 @@
+using LudusGestao.Application.DTOs.geral.Permissao;
+using LudusGestao.Application.Services;
+using LudusGestao.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.Services;
-using LudusGestao.Application.Common.Models;
-using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using LudusGestao.Application.DTOs.geral.Permissao;
 
 namespace LudusGestao.API.Controllers.geral;
 
@@ -107,4 +104,4 @@ public class PermissoesController : ControllerBase
             return StatusCode(500, new ApiResponse<object>(default) { Success = false, Message = "Erro ao obter permissões do submódulo" });
         }
     }
-} 
+}

@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using System.IO;
 
 namespace LudusGestao.Infrastructure.Data.Context
 {
@@ -22,4 +21,4 @@ namespace LudusGestao.Infrastructure.Data.Context
             return new ApplicationDbContext(optionsBuilder.Options);
         }
     }
-} 
+}

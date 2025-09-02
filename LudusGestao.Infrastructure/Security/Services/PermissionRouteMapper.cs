@@ -107,13 +107,13 @@ namespace LudusGestao.Infrastructure.Security.Services
 
         public string GetParentModule(string path)
         {
-            if (path.StartsWith("/api/empresas") || path.StartsWith("/api/filiais") || 
+            if (path.StartsWith("/api/empresas") || path.StartsWith("/api/filiais") ||
                 path.StartsWith("/api/usuarios") || path.StartsWith("/api/grupos-permissoes"))
             {
                 return "configuracoes";
             }
 
-            if (path.StartsWith("/api/clientes") || path.StartsWith("/api/locais") || 
+            if (path.StartsWith("/api/clientes") || path.StartsWith("/api/locais") ||
                 path.StartsWith("/api/reservas") || path.StartsWith("/api/recebiveis"))
             {
                 return "reservas";

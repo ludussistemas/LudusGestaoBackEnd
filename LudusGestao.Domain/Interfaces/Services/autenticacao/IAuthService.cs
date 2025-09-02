@@ -1,5 +1,4 @@
 using LudusGestao.Domain.Entities.geral;
-using System.Threading.Tasks;
 
 namespace LudusGestao.Domain.Interfaces.Services.autenticacao
 {
@@ -14,4 +13,4 @@ namespace LudusGestao.Domain.Interfaces.Services.autenticacao
         Task InvalidarRefreshTokenAsync(string refreshToken);
         Task<bool> RefreshTokenFoiUsadoAsync(string refreshToken);
     }
-} 
+}

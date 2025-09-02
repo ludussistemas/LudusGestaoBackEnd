@@ -1,5 +1,3 @@
-using System;
-
 namespace LudusGestao.Domain.Interfaces.Services
 {
     public interface ITenantService
@@ -7,4 +5,4 @@ namespace LudusGestao.Domain.Interfaces.Services
         void SetTenant(string tenantId);
         int GetTenantId();
     }
-} 
+}

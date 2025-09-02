@@ -1,6 +1,5 @@
-using LudusGestao.Domain.Entities.Base;
+using LudusGestao.Core.Entities.Base;
 using LudusGestao.Domain.Enums.eventos;
-using System;
 
 namespace LudusGestao.Domain.Entities.eventos
 {
@@ -16,4 +15,4 @@ namespace LudusGestao.Domain.Entities.eventos
         public Reserva? Reserva { get; set; }
         public int TenantId { get; set; }
     }
-} 
+}

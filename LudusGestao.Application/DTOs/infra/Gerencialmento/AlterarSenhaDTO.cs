@@ -12,4 +12,4 @@ namespace LudusGestao.Application.DTOs.Gerencialmento
         [MinLength(6, ErrorMessage = "A senha deve ter pelo menos 6 caracteres")]
         public string NovaSenha { get; set; }
     }
-} 
+}

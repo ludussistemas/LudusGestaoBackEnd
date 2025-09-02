@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks;
-
 namespace LudusGestao.Domain.Interfaces.Services.geral
 {
     public interface IPermissionValidator

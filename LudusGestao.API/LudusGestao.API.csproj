@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LudusGestao.Core\LudusGestao.Core.csproj" />
     <ProjectReference Include="..\LudusGestao.Application\LudusGestao.Application.csproj" />
     <ProjectReference Include="..\LudusGestao.Infrastructure\LudusGestao.Infrastructure.csproj" />
   </ItemGroup>

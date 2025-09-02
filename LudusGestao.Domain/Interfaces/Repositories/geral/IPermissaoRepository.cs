@@ -1,8 +1,5 @@
+using LudusGestao.Core.Interfaces.Repositories.Base;
 using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace LudusGestao.Domain.Interfaces.Repositories.geral
 {
@@ -13,5 +10,6 @@ namespace LudusGestao.Domain.Interfaces.Repositories.geral
         Task<IEnumerable<string>> ObterModulosPai();
         Task<IEnumerable<string>> ObterSubmodulos();
         Task<IEnumerable<Permissao>> ObterPorIdsAsync(IEnumerable<Guid> ids);
+        Task<IEnumerable<Permissao>> ObterPermissoesPorGrupoAsync(Guid grupoId);
     }
-} 
+}

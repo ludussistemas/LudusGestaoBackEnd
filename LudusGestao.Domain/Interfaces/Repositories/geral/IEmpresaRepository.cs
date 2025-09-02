@@ -1,6 +1,5 @@
+using LudusGestao.Core.Interfaces.Repositories.Base;
 using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
-using System.Threading.Tasks;
 
 namespace LudusGestao.Domain.Interfaces.Repositories.geral
 {
@@ -8,4 +7,4 @@ namespace LudusGestao.Domain.Interfaces.Repositories.geral
     {
         Task<int> GetMaxTenantIdAsync();
     }
-} 
+}

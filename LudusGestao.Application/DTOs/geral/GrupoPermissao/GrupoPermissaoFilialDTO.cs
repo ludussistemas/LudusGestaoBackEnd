@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace LudusGestao.Application.DTOs.geral.GrupoPermissao
 {
     public class GrupoPermissaoFilialDTO

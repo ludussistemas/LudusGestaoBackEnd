@@ -14,4 +14,4 @@ public class TokenDTO
     public string RefreshToken { get; set; } = string.Empty;
     public DateTime ExpiraEm { get; set; }
     public UsuarioDTO Usuario { get; set; } = new();
-} 
+}

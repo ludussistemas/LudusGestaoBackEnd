@@ -1,14 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using LudusGestao.Domain.Entities.Base;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
-using LudusGestao.Infrastructure.Data.Context;
-using LudusGestao.Domain.Common;
+using LudusGestao.Core.Common;
+using LudusGestao.Core.Interfaces.Repositories.Base;
 using LudusGestao.Domain.Interfaces.Services;
-using System.Linq;
+using LudusGestao.Infrastructure.Data.Context;
 using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
+using Microsoft.EntityFrameworkCore;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.Base
 {
@@ -21,7 +16,7 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
         protected readonly IEnumerable<IFilterStrategy> _filterStrategies;
 
         public BaseRepository(
-            ApplicationDbContext context, 
+            ApplicationDbContext context,
             ITenantService tenantService,
             ITenantFilter<T> tenantFilter,
             IQuerySorter<T> querySorter,
@@ -44,7 +39,7 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
         public virtual async Task<(IEnumerable<T> Items, int TotalCount)> ListarPaginado(QueryParamsBase queryParams)
         {
             var query = _context.Set<T>().AsQueryable();
-            
+
             // Aplicar filtro de tenant automaticamente
             query = ApplyTenantFilter(query);
 
@@ -70,44 +65,27 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
 
         protected virtual IQueryable<T> ApplyFilters(IQueryable<T> query, string filter)
         {
-            try
+            foreach (var strategy in _filterStrategies)
             {
-                foreach (var strategy in _filterStrategies)
+                if (strategy.CanHandle(filter))
                 {
-                    if (strategy.CanHandle(filter))
-                    {
-                        return strategy.Apply(query, filter);
-                    }
+                    return strategy.Apply(query, filter);
                 }
-                return query;
             }
-            catch
-            {
-                return query;
-            }
+            return query;
         }
 
 
 
         public virtual async Task Criar(T entity)
         {
-            if (entity is BaseEntity baseEntity)
-            {
-                baseEntity.DataCriacao = DateTime.UtcNow;
-                baseEntity.DataAtualizacao = null;
-            }
             await _context.Set<T>().AddAsync(entity);
-            await _context.SaveChangesAsync();
         }
 
-        public virtual async Task Atualizar(T entity)
+        public virtual Task Atualizar(T entity)
         {
-            if (entity is BaseEntity baseEntity)
-            {
-                baseEntity.DataAtualizacao = DateTime.UtcNow;
-            }
             _context.Set<T>().Update(entity);
-            await _context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
         public virtual async Task Remover(Guid id)
@@ -116,7 +94,6 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
             if (entity != null)
             {
                 _context.Set<T>().Remove(entity);
-                await _context.SaveChangesAsync();
             }
         }
 
@@ -134,10 +111,10 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
                 var tenantId = _tenantService.GetTenantId();
                 return _tenantFilter.Apply(query, tenantId);
             }
-            catch
+            catch (Exception ex)
             {
-                return query.Where(x => false);
+                throw new UnauthorizedAccessException("Tenant não definido ou inválido.", ex);
             }
         }
     }
-} 
+}

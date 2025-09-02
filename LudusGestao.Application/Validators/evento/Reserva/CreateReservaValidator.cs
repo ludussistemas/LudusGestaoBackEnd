@@ -15,4 +15,4 @@ namespace LudusGestao.Application.Validators.evento.Reserva
             RuleFor(x => x.Situacao).NotEmpty().WithMessage("A situação é obrigatória.");
         }
     }
-} 
+}

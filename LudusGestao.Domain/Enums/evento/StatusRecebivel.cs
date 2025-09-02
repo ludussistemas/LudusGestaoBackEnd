@@ -11,4 +11,4 @@ namespace LudusGestao.Domain.Enums.eventos
         Cancelado = 4,     // Cancelou evento ou cancelado manualmente
         Estornado = 5      // Somente manualmente
     }
-} 
+}

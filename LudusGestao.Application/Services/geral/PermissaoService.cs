@@ -1,18 +1,13 @@
-using LudusGestao.Application.Common.Interfaces;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Interfaces.Repositories.geral;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
-using LudusGestao.Domain.Common;
-using LudusGestao.Application.Common.Models;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using LudusGestao.Application.DTOs.geral.Permissao;
+using LudusGestao.Core.Common;
+using LudusGestao.Core.Interfaces.Services;
+using LudusGestao.Core.Models;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
 
 namespace LudusGestao.Application.Services
 {
-    public class PermissaoService : IBaseCrudService<PermissaoDTO, object, object>
+    public class PermissaoService : IBaseCrudService<PermissaoDTO, CreatePermissaoDTO, UpdatePermissaoDTO>
     {
         private readonly IPermissaoRepository _repository;
         private readonly IMapper _mapper;
@@ -39,7 +34,7 @@ namespace LudusGestao.Application.Services
         {
             var (items, totalCount) = await _repository.ListarPaginado(queryParams);
             var dtos = _mapper.Map<IEnumerable<PermissaoDTO>>(items);
-            
+
             return new ApiPagedResponse<PermissaoDTO>(dtos, queryParams.Page, queryParams.Limit, totalCount);
         }
 
@@ -66,8 +61,8 @@ namespace LudusGestao.Application.Services
         }
 
         // Métodos não implementados para este serviço
-        public Task<PermissaoDTO> Criar(object dto) => throw new NotImplementedException();
-        public Task<PermissaoDTO> Atualizar(Guid id, object dto) => throw new NotImplementedException();
+        public Task<PermissaoDTO> Criar(CreatePermissaoDTO dto) => throw new NotImplementedException();
+        public Task<PermissaoDTO> Atualizar(Guid id, UpdatePermissaoDTO dto) => throw new NotImplementedException();
         public Task<bool> Remover(Guid id) => throw new NotImplementedException();
     }
-} 
+}

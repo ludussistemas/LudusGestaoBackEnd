@@ -13,4 +13,4 @@ namespace LudusGestao.Application.Validators.Cliente
             RuleFor(x => x.Situacao).NotEmpty().WithMessage("A situação é obrigatória.");
         }
     }
-} 
+}

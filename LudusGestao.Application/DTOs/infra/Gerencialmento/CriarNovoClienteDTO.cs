@@ -29,4 +29,4 @@ namespace LudusGestao.Application.DTOs.Gerencialmento
         [Required(ErrorMessage = "CEP é obrigatório")]
         public string CEP { get; set; }
     }
-} 
+}

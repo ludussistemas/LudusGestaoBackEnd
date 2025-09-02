@@ -1,7 +1,6 @@
-using System.Linq;
+using LudusGestao.Core.Entities.Base;
+using LudusGestao.Core.Interfaces.Repositories.Base;
 using System.Linq.Expressions;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
-using LudusGestao.Domain.Entities.Base;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.Base
 {

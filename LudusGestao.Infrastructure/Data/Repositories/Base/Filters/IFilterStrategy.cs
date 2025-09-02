@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace LudusGestao.Infrastructure.Data.Repositories.Base.Filters
 {
     public interface IFilterStrategy

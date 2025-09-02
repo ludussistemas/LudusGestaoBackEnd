@@ -10,4 +10,4 @@ public class RecebivelResumoDTO
     public int Pendentes { get; set; }
     public int Pagos { get; set; }
     public int Vencidos { get; set; }
-} 
+}

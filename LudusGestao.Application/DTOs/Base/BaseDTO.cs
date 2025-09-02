@@ -8,4 +8,4 @@ namespace LudusGestao.Application.DTOs.Base;
 public abstract class BaseDTO
 {
     public Guid Id { get; set; }
-} 
+}

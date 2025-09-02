@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using LudusGestao.Domain.Interfaces.Services.geral;
 
 namespace LudusGestao.Infrastructure.Security.Services
@@ -15,12 +13,14 @@ namespace LudusGestao.Infrastructure.Security.Services
 
         public async Task<bool> HasPermissionAsync(Guid userId, string permission)
         {
-            return await _permissaoService.UsuarioTemPermissaoAsync(userId, permission);
+            return await _permissaoService.VerificarPermissaoUsuarioAsync(userId, permission);
         }
 
         public async Task<bool> HasModuleAccessAsync(Guid userId, string module)
         {
-            return await _permissaoService.UsuarioTemAcessoModuloAsync(userId, module);
+            // Implementação básica - verificar se o usuário tem alguma permissão do módulo
+            var permissoes = await _permissaoService.ObterPermissoesUsuarioAsync(userId);
+            return permissoes.Any(p => p.StartsWith(module + "."));
         }
     }
 }

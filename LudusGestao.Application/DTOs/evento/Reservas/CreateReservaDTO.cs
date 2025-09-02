@@ -1,5 +1,4 @@
 using LudusGestao.Domain.Enums.eventos;
-using System;
 
 namespace LudusGestao.Application.DTOs.reserva.Reservas;
 
@@ -16,4 +15,4 @@ public class CreateReservaDTO
     public string Esporte { get; set; }
     public string Observacoes { get; set; }
     public decimal Valor { get; set; }
-} 
+}

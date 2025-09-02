@@ -1,25 +1,23 @@
 // Arquivo criado para padronização da estrutura de repositórios 
-using LudusGestao.Domain.Entities;
-using LudusGestao.Domain.Interfaces.Repositories;
+using LudusGestao.Core.Interfaces.Repositories.Base;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Infrastructure.Data.Context;
 using LudusGestao.Infrastructure.Data.Repositories.Base;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
 using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
 using Microsoft.EntityFrameworkCore;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Interfaces.Repositories.geral;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.geral;
 
 public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
 {
     public UsuarioRepository(
-        ApplicationDbContext context, 
+        ApplicationDbContext context,
         ITenantService tenantService,
         ITenantFilter<Usuario> tenantFilter,
         IQuerySorter<Usuario> querySorter,
-        IEnumerable<IFilterStrategy> filterStrategies) 
+        IEnumerable<IFilterStrategy> filterStrategies)
         : base(context, tenantService, tenantFilter, querySorter, filterStrategies) { }
 
     public async Task<Usuario?> ObterPorEmail(string email)
@@ -56,4 +54,4 @@ public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
             .IgnoreQueryFilters()
             .FirstOrDefaultAsync(u => u.Email == email);
     }
-} 
+}

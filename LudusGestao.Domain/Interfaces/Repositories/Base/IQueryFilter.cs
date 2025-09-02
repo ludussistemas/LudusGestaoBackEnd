@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace LudusGestao.Domain.Interfaces.Repositories.Base
 {
     public interface IQueryFilter<T>

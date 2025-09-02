@@ -5,4 +5,4 @@ namespace LudusGestao.Domain.Enums.geral
         Ativo = 1,
         Inativo = 2
     }
-} 
+}

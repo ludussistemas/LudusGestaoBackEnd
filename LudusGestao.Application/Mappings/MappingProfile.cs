@@ -1,16 +1,15 @@
 using AutoMapper;
-using LudusGestao.Application.DTOs.Filial;
-using LudusGestao.Application.DTOs.Local;
-using LudusGestao.Application.DTOs.Recebivel;
-using LudusGestao.Application.DTOs.Usuario;
-using LudusGestao.Domain.Entities;
 using LudusGestao.Application.DTOs.Empresa;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Entities.eventos;
+using LudusGestao.Application.DTOs.evento.Local;
+using LudusGestao.Application.DTOs.evento.Recebivel;
+using LudusGestao.Application.DTOs.Filial;
 using LudusGestao.Application.DTOs.geral.GrupoPermissao;
 using LudusGestao.Application.DTOs.geral.Permissao;
-using LudusGestao.Application.DTOs.reserva.Reservas;
 using LudusGestao.Application.DTOs.reserva.Cliente;
+using LudusGestao.Application.DTOs.reserva.Reservas;
+using LudusGestao.Application.DTOs.Usuario;
+using LudusGestao.Domain.Entities.eventos;
+using LudusGestao.Domain.Entities.geral;
 
 namespace LudusGestao.Application.Mappings
 {
@@ -74,7 +73,7 @@ namespace LudusGestao.Application.Mappings
                 .ForMember(dest => dest.Bairro, opt => opt.MapFrom(src => ""))
                 .ForMember(dest => dest.Cidade, opt => opt.MapFrom(src => src.Cidade))
                 .ForMember(dest => dest.Estado, opt => opt.MapFrom(src => src.Estado))
-                .ForMember(dest => dest.CEP, opt => opt.MapFrom(src => src.Cep));
+                .ForMember(dest => dest.Cep, opt => opt.MapFrom(src => src.Cep));
 
             // GrupoPermissao
             CreateMap<CreateGrupoPermissaoDTO, GrupoPermissao>();
@@ -85,4 +84,4 @@ namespace LudusGestao.Application.Mappings
             CreateMap<Permissao, PermissaoDTO>();
         }
     }
-} 
+}

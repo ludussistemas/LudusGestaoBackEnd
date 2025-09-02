@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
+using LudusGestao.Application.Common.Interfaces;
 using LudusGestao.Application.DTOs.Auth;
-using LudusGestao.Application.Common.Models;
-using LudusGestao.Application.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LudusGestao.API.Controllers.autenticacao;
 
@@ -9,9 +8,9 @@ namespace LudusGestao.API.Controllers.autenticacao;
 [Route("api/autenticacao")]
 public class AuthController : ControllerBase
 {
-    private readonly AuthService _authService;
+    private readonly IAuthService _authService;
 
-    public AuthController(AuthService authService)
+    public AuthController(IAuthService authService)
     {
         _authService = authService;
     }
@@ -33,4 +32,4 @@ public class AuthController : ControllerBase
             return Unauthorized(result);
         return Ok(result);
     }
-} 
+}

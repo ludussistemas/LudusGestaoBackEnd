@@ -1,5 +1,4 @@
 using LudusGestao.Domain.Enums.eventos;
-using System;
 
 namespace LudusGestao.Application.DTOs.reserva.Cliente;
 
@@ -12,4 +11,4 @@ public class CreateClienteDTO
     public string Endereco { get; set; }
     public string Observacoes { get; set; }
     public SituacaoCliente Situacao { get; set; }
-} 
+}

@@ -1,5 +1,5 @@
 using FluentValidation;
-using LudusGestao.Application.DTOs.Recebivel;
+using LudusGestao.Application.DTOs.evento.Recebivel;
 
 namespace LudusGestao.Application.Validators.Recebivel
 {
@@ -14,4 +14,4 @@ namespace LudusGestao.Application.Validators.Recebivel
             RuleFor(x => x.Situacao).NotEmpty().WithMessage("A situação é obrigatória.");
         }
     }
-} 
+}

@@ -1,24 +1,19 @@
+using LudusGestao.Application.DTOs.evento.Recebivel;
+using LudusGestao.Application.DTOs.infra.Utilitarios;
+using LudusGestao.Core.Controllers;
+using LudusGestao.Core.Models;
+using LudusGestao.Domain.Enums.eventos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.DTOs.Recebivel;
-using LudusGestao.Application.Services;
-using LudusGestao.Application.Common.Models;
-using LudusGestao.Domain.Enums;
-using System;
-using System.Threading.Tasks;
-using System.Linq;
-using LudusGestao.API.Controllers;
-using LudusGestao.Domain.Enums.eventos;
-using LudusGestao.Application.DTOs.infra.Utilitarios;
 
 namespace LudusGestao.API.Controllers.eventos;
 
 [ApiController]
 [Route("api/recebiveis")]
 [Authorize]
-public class RecebiveisController : BaseCrudController<RecebivelService, RecebivelDTO, CreateRecebivelDTO, UpdateRecebivelDTO>
+public class RecebiveisController : BaseCrudController<LudusGestao.Core.Interfaces.Services.IBaseCrudService<RecebivelDTO, CreateRecebivelDTO, UpdateRecebivelDTO>, RecebivelDTO, CreateRecebivelDTO, UpdateRecebivelDTO>
 {
-    public RecebiveisController(RecebivelService service) : base(service) { }
+    public RecebiveisController(LudusGestao.Core.Interfaces.Services.IBaseCrudService<RecebivelDTO, CreateRecebivelDTO, UpdateRecebivelDTO> service) : base(service) { }
 
     [HttpGet("resumo")]
     public async Task<IActionResult> ObterResumo()
@@ -46,4 +41,4 @@ public class RecebiveisController : BaseCrudController<RecebivelService, Recebiv
             return StatusCode(500, new ApiResponse<object>(default) { Success = false, Message = "Erro ao obter resumo de recebíveis" });
         }
     }
-} 
+}

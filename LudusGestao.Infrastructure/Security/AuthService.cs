@@ -1,19 +1,12 @@
-using System;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
+using LudusGestao.Domain.Interfaces.Services.autenticacao;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System.Collections.Concurrent;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using LudusGestao.Domain.Entities;
-using LudusGestao.Domain.Interfaces.Repositories;
-
-using BCrypt.Net;
-using System.Linq;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Interfaces.Repositories.geral;
-using LudusGestao.Domain.Interfaces.Services.autenticacao;
 
 namespace LudusGestao.Infrastructure.Security
 {
@@ -32,10 +25,10 @@ namespace LudusGestao.Infrastructure.Security
         public async Task<string> GerarTokenAsync(Usuario usuario)
         {
             Console.WriteLine($"[AuthService] Gerando token para usuário: {usuario.Email}, TenantId: {usuario.TenantId}");
-            
+
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key não configurada"));
-            
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
@@ -46,9 +39,9 @@ namespace LudusGestao.Infrastructure.Security
                     new Claim("TenantId", usuario.TenantId.ToString()),
                     new Claim("tipo", "access")
                 }),
-                Expires = DateTime.UtcNow.AddHours(LudusGestao.Domain.Common.Constants.JwtConstants.AccessTokenExpirationHours),
-                Issuer = LudusGestao.Domain.Common.Constants.JwtConstants.Issuer,
-                Audience = LudusGestao.Domain.Common.Constants.JwtConstants.Audience,
+                Expires = DateTime.UtcNow.AddHours(LudusGestao.Core.Constants.JwtConstants.AccessTokenExpirationHours),
+                Issuer = LudusGestao.Core.Constants.JwtConstants.Issuer,
+                Audience = LudusGestao.Core.Constants.JwtConstants.Audience,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
@@ -59,10 +52,10 @@ namespace LudusGestao.Infrastructure.Security
         public async Task<string> GerarRefreshTokenAsync(Usuario usuario)
         {
             Console.WriteLine($"[AuthService] Gerando refresh token para usuário: {usuario.Email}");
-            
+
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key não configurada"));
-            
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
@@ -72,9 +65,9 @@ namespace LudusGestao.Infrastructure.Security
                     new Claim("TenantId", usuario.TenantId.ToString()),
                     new Claim("tipo", "refresh")
                 }),
-                Expires = DateTime.UtcNow.AddDays(LudusGestao.Domain.Common.Constants.JwtConstants.RefreshTokenExpirationDays),
-                Issuer = LudusGestao.Domain.Common.Constants.JwtConstants.Issuer,
-                Audience = LudusGestao.Domain.Common.Constants.JwtConstants.Audience,
+                Expires = DateTime.UtcNow.AddDays(LudusGestao.Core.Constants.JwtConstants.RefreshTokenExpirationDays),
+                Issuer = LudusGestao.Core.Constants.JwtConstants.Issuer,
+                Audience = LudusGestao.Core.Constants.JwtConstants.Audience,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
@@ -97,24 +90,24 @@ namespace LudusGestao.Infrastructure.Security
             try
             {
                 Console.WriteLine($"[AuthService] Validando refresh token: {refreshToken.Substring(0, Math.Min(20, refreshToken.Length))}...");
-                
+
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key não configurada"));
-                
+
                 var validationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = true,
-                    ValidIssuer = LudusGestao.Domain.Common.Constants.JwtConstants.Issuer,
+                    ValidIssuer = LudusGestao.Core.Constants.JwtConstants.Issuer,
                     ValidateAudience = true,
-                    ValidAudience = LudusGestao.Domain.Common.Constants.JwtConstants.Audience,
+                    ValidAudience = LudusGestao.Core.Constants.JwtConstants.Audience,
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
                 };
 
                 var principal = tokenHandler.ValidateToken(refreshToken, validationParameters, out var validatedToken);
-                
+
                 // Verificar se é um refresh token
                 var tipoClaim = principal.FindFirst("tipo")?.Value;
                 if (tipoClaim != "refresh")
@@ -139,21 +132,21 @@ namespace LudusGestao.Infrastructure.Security
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key não configurada"));
-                
+
                 var validationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = true,
-                    ValidIssuer = LudusGestao.Domain.Common.Constants.JwtConstants.Issuer,
+                    ValidIssuer = LudusGestao.Core.Constants.JwtConstants.Issuer,
                     ValidateAudience = true,
-                    ValidAudience = LudusGestao.Domain.Common.Constants.JwtConstants.Audience,
+                    ValidAudience = LudusGestao.Core.Constants.JwtConstants.Audience,
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
                 };
 
                 var principal = tokenHandler.ValidateToken(refreshToken, validationParameters, out var validatedToken);
-                
+
                 // Verificar se é um refresh token
                 var tipoClaim = principal.FindFirst("tipo")?.Value;
                 if (tipoClaim != "refresh")
@@ -180,7 +173,7 @@ namespace LudusGestao.Infrastructure.Security
         {
             // Adicionar o refresh token à blacklist com timestamp
             _refreshTokensInvalidados.TryAdd(refreshToken, DateTime.UtcNow);
-            
+
             // Limpar tokens antigos (mais de 30 dias) para não consumir muita memória
             var tokensParaRemover = _refreshTokensInvalidados
                 .Where(kvp => kvp.Value < DateTime.UtcNow.AddDays(-30))
@@ -198,4 +191,4 @@ namespace LudusGestao.Infrastructure.Security
             return _refreshTokensInvalidados.ContainsKey(refreshToken);
         }
     }
-} 
+}

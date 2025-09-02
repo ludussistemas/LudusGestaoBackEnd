@@ -1,10 +1,9 @@
 // Arquivo criado para padronização da estrutura de DTOs 
 
-namespace LudusGestao.Application.DTOs.Local;
+namespace LudusGestao.Application.DTOs.evento.Local;
+using LudusGestao.Domain.Enums.eventos;
 using System;
 using System.Collections.Generic;
-using LudusGestao.Domain.Enums;
-using LudusGestao.Domain.Enums.eventos;
 
 public class UpdateLocalDTO
 {
@@ -20,4 +19,4 @@ public class UpdateLocalDTO
     public string HoraAbertura { get; set; }
     public string HoraFechamento { get; set; }
     public Guid FilialId { get; set; }
-} 
+}

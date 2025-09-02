@@ -1,28 +1,22 @@
-using LudusGestao.Domain.Entities;
-using LudusGestao.Domain.Interfaces.Repositories;
+using LudusGestao.Core.Interfaces.Repositories.Base;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Infrastructure.Data.Context;
 using LudusGestao.Infrastructure.Data.Repositories.Base;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
 using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Interfaces.Repositories.geral;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.geral
 {
     public class PermissaoRepository : BaseRepository<Permissao>, IPermissaoRepository
     {
         public PermissaoRepository(
-        ApplicationDbContext context, 
+        ApplicationDbContext context,
         ITenantService tenantService,
         ITenantFilter<Permissao> tenantFilter,
         IQuerySorter<Permissao> querySorter,
-        IEnumerable<IFilterStrategy> filterStrategies) 
+        IEnumerable<IFilterStrategy> filterStrategies)
         : base(context, tenantService, tenantFilter, querySorter, filterStrategies)
         {
         }
@@ -61,5 +55,14 @@ namespace LudusGestao.Infrastructure.Data.Repositories.geral
             query = ApplyTenantFilter(query);
             return await query.Where(p => ids.Contains(p.Id)).ToListAsync();
         }
+
+        public async Task<IEnumerable<Permissao>> ObterPermissoesPorGrupoAsync(Guid grupoId)
+        {
+            // Implementação básica - retorna todas as permissões do tenant
+            // Em uma implementação mais complexa, você poderia ter uma tabela de relacionamento
+            var query = _context.Set<Permissao>().AsQueryable();
+            query = ApplyTenantFilter(query);
+            return await query.ToListAsync();
+        }
     }
-} 
+}

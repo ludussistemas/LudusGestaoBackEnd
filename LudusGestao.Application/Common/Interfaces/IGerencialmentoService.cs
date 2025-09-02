@@ -1,6 +1,5 @@
-using LudusGestao.Application.Common.Models;
 using LudusGestao.Application.DTOs.Gerencialmento;
-using System.Threading.Tasks;
+using LudusGestao.Core.Models;
 
 namespace LudusGestao.Application.Common.Interfaces
 {
@@ -9,4 +8,4 @@ namespace LudusGestao.Application.Common.Interfaces
         Task<ApiResponse<NovoClienteResultadoDTO>> CriarNovoCliente(CriarNovoClienteDTO dto);
         Task<ApiResponse<object>> AlterarSenha(AlterarSenhaDTO dto);
     }
-} 
+}

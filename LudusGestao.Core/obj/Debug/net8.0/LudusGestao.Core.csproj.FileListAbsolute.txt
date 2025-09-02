@@ -1,0 +1,13 @@
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\LudusGestao.Core.csproj.AssemblyReference.cache
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\LudusGestao.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\LudusGestao.Core.AssemblyInfoInputs.cache
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\LudusGestao.Core.AssemblyInfo.cs
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\LudusGestao.Core.csproj.CoreCompileInputs.cache
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\LudusGestao.Core.sourcelink.json
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\bin\Debug\net8.0\LudusGestao.Core.deps.json
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\bin\Debug\net8.0\LudusGestao.Core.dll
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\bin\Debug\net8.0\LudusGestao.Core.pdb
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\LudusGestao.Core.dll
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\refint\LudusGestao.Core.dll
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\LudusGestao.Core.pdb
+C:\Users\guilherme.peritto\Documents\LudusGestaoBackEnd\LudusGestao.Core\obj\Debug\net8.0\ref\LudusGestao.Core.dll

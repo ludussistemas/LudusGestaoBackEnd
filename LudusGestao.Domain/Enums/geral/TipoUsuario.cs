@@ -6,4 +6,4 @@ namespace LudusGestao.Domain.Enums.geral
         Funcionario = 2,
         Cliente = 3
     }
-} 
+}

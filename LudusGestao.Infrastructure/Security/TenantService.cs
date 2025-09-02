@@ -1,6 +1,4 @@
 using LudusGestao.Domain.Interfaces.Services;
-using System;
-using System.Threading;
 
 namespace LudusGestao.Infrastructure.Security
 {
@@ -23,4 +21,4 @@ namespace LudusGestao.Infrastructure.Security
             return _tenantId.Value;
         }
     }
-} 
+}

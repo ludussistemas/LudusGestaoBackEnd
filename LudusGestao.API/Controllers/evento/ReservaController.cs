@@ -1,14 +1,14 @@
+using LudusGestao.Application.DTOs.reserva.Reservas;
+using LudusGestao.Core.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.Services;
-using LudusGestao.Application.DTOs.reserva.Reservas;
 
 namespace LudusGestao.API.Controllers.eventos;
 
 [ApiController]
 [Route("api/reservas")]
 [Authorize]
-public class ReservasController : BaseCrudController<ReservaService, ReservaDTO, CreateReservaDTO, UpdateReservaDTO>
+public class ReservasController : BaseCrudController<LudusGestao.Core.Interfaces.Services.IBaseCrudService<ReservaDTO, CreateReservaDTO, UpdateReservaDTO>, ReservaDTO, CreateReservaDTO, UpdateReservaDTO>
 {
-    public ReservasController(ReservaService service) : base(service) { }
-} 
+    public ReservasController(LudusGestao.Core.Interfaces.Services.IBaseCrudService<ReservaDTO, CreateReservaDTO, UpdateReservaDTO> service) : base(service) { }
+}

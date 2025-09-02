@@ -1,15 +1,11 @@
-using LudusGestao.Application.Common.Interfaces;
+using AutoMapper;
+using LudusGestao.Application.DTOs.geral.GrupoPermissao;
+using LudusGestao.Core.Common;
+using LudusGestao.Core.Exceptions;
+using LudusGestao.Core.Interfaces.Services;
+using LudusGestao.Core.Models;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
-using LudusGestao.Domain.Common;
-using LudusGestao.Application.Common.Models;
-using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
-using LudusGestao.Application.DTOs.geral.GrupoPermissao;
 
 namespace LudusGestao.Application.Services
 {
@@ -47,14 +43,14 @@ namespace LudusGestao.Application.Services
         {
             var (items, totalCount) = await _repository.ListarPaginado(queryParams);
             var dtos = _mapper.Map<IEnumerable<GrupoPermissaoDTO>>(items);
-            
+
             return new ApiPagedResponse<GrupoPermissaoDTO>(dtos, queryParams.Page, queryParams.Limit, totalCount);
         }
 
         public async Task<GrupoPermissaoDTO> Atualizar(Guid id, UpdateGrupoPermissaoDTO dto)
         {
             var entity = await _repository.ObterPorId(id);
-            if (entity == null) throw new Domain.Common.Exceptions.NotFoundException("Grupo de permissão não encontrado");
+            if (entity == null) throw new NotFoundException("Grupo de permissão não encontrado");
 
             _mapper.Map(dto, entity);
             await _repository.Atualizar(entity);
@@ -93,4 +89,4 @@ namespace LudusGestao.Application.Services
             await _repository.RemoverUsuarioDoGrupoAsync(grupoId, usuarioId);
         }
     }
-} 
+}

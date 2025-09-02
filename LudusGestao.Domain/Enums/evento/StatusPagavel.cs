@@ -9,4 +9,4 @@ namespace LudusGestao.Domain.Enums.eventos
         Vencido = 2,       // Passou da data de vencimento
         Cancelado = 3      // Cancelado
     }
-} 
+}

@@ -7,4 +7,4 @@ public class ClienteResumoDTO
     public int Inativos { get; set; }
     public int NovosMes { get; set; }
     public int PessoaJuridica { get; set; }
-} 
+}

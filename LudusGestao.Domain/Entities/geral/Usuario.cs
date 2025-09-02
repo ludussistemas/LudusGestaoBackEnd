@@ -1,7 +1,5 @@
-using LudusGestao.Domain.Entities.Base;
+using LudusGestao.Core.Entities.Base;
 using LudusGestao.Domain.Enums.geral;
-using System;
-using System.Collections.Generic;
 
 namespace LudusGestao.Domain.Entities.geral
 {
@@ -21,4 +19,4 @@ namespace LudusGestao.Domain.Entities.geral
         public string Senha { get; set; }
         public int TenantId { get; set; }
     }
-} 
+}

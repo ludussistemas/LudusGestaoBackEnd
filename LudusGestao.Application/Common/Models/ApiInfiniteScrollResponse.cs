@@ -17,4 +17,4 @@ namespace LudusGestao.Application.Common.Models
             HasMore = hasMore;
         }
     }
-} 
+}

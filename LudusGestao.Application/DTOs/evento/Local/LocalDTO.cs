@@ -1,18 +1,17 @@
 // Arquivo criado para padronização da estrutura de DTOs 
 
-namespace LudusGestao.Application.DTOs.Local;
-using System;
-using System.Collections.Generic;
-using LudusGestao.Domain.Enums;
+namespace LudusGestao.Application.DTOs.evento.Local;
 using LudusGestao.Application.DTOs.Filial;
 using LudusGestao.Domain.Enums.eventos;
+using System;
+using System.Collections.Generic;
 
 public class LocalDTO
 {
     public Guid Id { get; set; }
     public DateTime DataCriacao { get; set; }
     public DateTime? DataAtualizacao { get; set; }
-    
+
     public string Nome { get; set; }
     public string Tipo { get; set; }
     public int Intervalo { get; set; }
@@ -24,10 +23,10 @@ public class LocalDTO
     public string Cor { get; set; }
     public string HoraAbertura { get; set; }
     public string HoraFechamento { get; set; }
-    
+
     // Associações
     public Guid FilialId { get; set; }
     public FilialDTO Filial { get; set; }
-    
+
     public int TenantId { get; set; }
-} 
+}

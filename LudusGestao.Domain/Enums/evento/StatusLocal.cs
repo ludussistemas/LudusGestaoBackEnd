@@ -9,4 +9,4 @@ namespace LudusGestao.Domain.Enums.eventos
         Inativo = 2,
         Manutencao = 3     // Em manutenção
     }
-} 
+}

@@ -13,4 +13,4 @@ namespace LudusGestao.Application.Validators.geral.Filial
             RuleFor(x => x.Email).EmailAddress().WithMessage("E-mail inválido.");
         }
     }
-} 
+}

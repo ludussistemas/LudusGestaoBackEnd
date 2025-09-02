@@ -1,6 +1,5 @@
-using System.Linq;
+using LudusGestao.Core.Interfaces.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
-using LudusGestao.Domain.Interfaces.Repositories.Base;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.Base
 {
@@ -37,13 +36,13 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
                 {
                     if (isFirst)
                     {
-                        query = isDescending ? query.OrderByDescending(e => EF.Property<object>(e, mappedField)) 
+                        query = isDescending ? query.OrderByDescending(e => EF.Property<object>(e, mappedField))
                                             : query.OrderBy(e => EF.Property<object>(e, mappedField));
                         isFirst = false;
                     }
                     else
                     {
-                        query = isDescending ? query.OrderByDescending(e => EF.Property<object>(e, mappedField)) 
+                        query = isDescending ? query.OrderByDescending(e => EF.Property<object>(e, mappedField))
                                             : query.OrderBy(e => EF.Property<object>(e, mappedField));
                     }
                 }

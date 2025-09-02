@@ -1,11 +1,7 @@
+using LudusGestao.Core.Models;
+using LudusGestao.Domain.Interfaces.Services.geral;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.DTOs.Usuario;
-using LudusGestao.Application.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using LudusGestao.Domain.Interfaces.Services.geral;
 
 namespace LudusGestao.API.Controllers.geral
 {
@@ -15,10 +11,17 @@ namespace LudusGestao.API.Controllers.geral
     public class UsuarioPermissaoController : ControllerBase
     {
         private readonly IPermissaoVerificacaoService _permissaoService;
+        private readonly IFilialAcessoService _filialService;
+        private readonly IModuloAcessoService _moduloService;
 
-        public UsuarioPermissaoController(IPermissaoVerificacaoService permissaoService)
+        public UsuarioPermissaoController(
+            IPermissaoVerificacaoService permissaoService,
+            IFilialAcessoService filialService,
+            IModuloAcessoService moduloService)
         {
             _permissaoService = permissaoService;
+            _filialService = filialService;
+            _moduloService = moduloService;
         }
 
         [HttpGet("{id}/permissoes")]
@@ -40,7 +43,7 @@ namespace LudusGestao.API.Controllers.geral
         {
             try
             {
-                var filiais = await _permissaoService.ObterFiliaisUsuarioAsync(id);
+                var filiais = await _filialService.ObterFiliaisUsuarioAsync(id);
                 return Ok(new ApiResponse<IEnumerable<Guid>>(filiais, "Filiais do usuário obtidas com sucesso"));
             }
             catch (Exception ex)
@@ -54,7 +57,7 @@ namespace LudusGestao.API.Controllers.geral
         {
             try
             {
-                var modulos = await _permissaoService.ObterModulosUsuarioAsync(id);
+                var modulos = await _moduloService.ObterModulosUsuarioAsync(id);
                 return Ok(new ApiResponse<IEnumerable<string>>(modulos, "Módulos do usuário obtidos com sucesso"));
             }
             catch (Exception ex)

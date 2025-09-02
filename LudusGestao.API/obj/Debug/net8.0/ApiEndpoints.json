@@ -32,7 +32,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ClienteService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Listar",
     "RelativePath": "api/clientes",
     "HttpMethod": "GET",
@@ -73,7 +73,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ClienteService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Criar",
     "RelativePath": "api/clientes",
     "HttpMethod": "POST",
@@ -89,7 +89,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ClienteService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "ObterPorId",
     "RelativePath": "api/clientes/{id}",
     "HttpMethod": "GET",
@@ -105,7 +105,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ClienteService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Atualizar",
     "RelativePath": "api/clientes/{id}",
     "HttpMethod": "PUT",
@@ -126,7 +126,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ClienteService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Remover",
     "RelativePath": "api/clientes/{id}",
     "HttpMethod": "DELETE",
@@ -152,7 +152,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.EmpresaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Listar",
     "RelativePath": "api/empresas",
     "HttpMethod": "GET",
@@ -193,7 +193,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.EmpresaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Criar",
     "RelativePath": "api/empresas",
     "HttpMethod": "POST",
@@ -209,7 +209,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.EmpresaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "ObterPorId",
     "RelativePath": "api/empresas/{id}",
     "HttpMethod": "GET",
@@ -225,7 +225,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.EmpresaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Atualizar",
     "RelativePath": "api/empresas/{id}",
     "HttpMethod": "PUT",
@@ -246,7 +246,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.EmpresaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Remover",
     "RelativePath": "api/empresas/{id}",
     "HttpMethod": "DELETE",
@@ -262,7 +262,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.FilialService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Listar",
     "RelativePath": "api/filiais",
     "HttpMethod": "GET",
@@ -303,7 +303,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.FilialService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Criar",
     "RelativePath": "api/filiais",
     "HttpMethod": "POST",
@@ -319,7 +319,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.FilialService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "ObterPorId",
     "RelativePath": "api/filiais/{id}",
     "HttpMethod": "GET",
@@ -335,7 +335,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.FilialService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Atualizar",
     "RelativePath": "api/filiais/{id}",
     "HttpMethod": "PUT",
@@ -356,7 +356,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.FilialService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Filial.UpdateFilialDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Remover",
     "RelativePath": "api/filiais/{id}",
     "HttpMethod": "DELETE",
@@ -572,7 +572,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.LocalService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Listar",
     "RelativePath": "api/locais",
     "HttpMethod": "GET",
@@ -613,7 +613,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.LocalService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Criar",
     "RelativePath": "api/locais",
     "HttpMethod": "POST",
@@ -622,14 +622,14 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "LudusGestao.Application.DTOs.Local.CreateLocalDTO",
+        "Type": "LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.LocalService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "ObterPorId",
     "RelativePath": "api/locais/{id}",
     "HttpMethod": "GET",
@@ -645,7 +645,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.LocalService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Atualizar",
     "RelativePath": "api/locais/{id}",
     "HttpMethod": "PUT",
@@ -659,14 +659,14 @@
       },
       {
         "Name": "dto",
-        "Type": "LudusGestao.Application.DTOs.Local.UpdateLocalDTO",
+        "Type": "LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.LocalService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Remover",
     "RelativePath": "api/locais/{id}",
     "HttpMethod": "DELETE",
@@ -770,7 +770,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.RecebivelService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Listar",
     "RelativePath": "api/recebiveis",
     "HttpMethod": "GET",
@@ -811,7 +811,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.RecebivelService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Criar",
     "RelativePath": "api/recebiveis",
     "HttpMethod": "POST",
@@ -820,14 +820,14 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "LudusGestao.Application.DTOs.Recebivel.CreateRecebivelDTO",
+        "Type": "LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.RecebivelService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "ObterPorId",
     "RelativePath": "api/recebiveis/{id}",
     "HttpMethod": "GET",
@@ -843,7 +843,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.RecebivelService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Atualizar",
     "RelativePath": "api/recebiveis/{id}",
     "HttpMethod": "PUT",
@@ -857,14 +857,14 @@
       },
       {
         "Name": "dto",
-        "Type": "LudusGestao.Application.DTOs.Recebivel.UpdateRecebivelDTO",
+        "Type": "LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.RecebivelService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Remover",
     "RelativePath": "api/recebiveis/{id}",
     "HttpMethod": "DELETE",
@@ -890,7 +890,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ReservaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Listar",
     "RelativePath": "api/reservas",
     "HttpMethod": "GET",
@@ -931,7 +931,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ReservaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Criar",
     "RelativePath": "api/reservas",
     "HttpMethod": "POST",
@@ -947,7 +947,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ReservaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "ObterPorId",
     "RelativePath": "api/reservas/{id}",
     "HttpMethod": "GET",
@@ -963,7 +963,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ReservaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Atualizar",
     "RelativePath": "api/reservas/{id}",
     "HttpMethod": "PUT",
@@ -984,7 +984,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.ReservaService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Remover",
     "RelativePath": "api/reservas/{id}",
     "HttpMethod": "DELETE",
@@ -1000,7 +1000,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.UsuarioService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Listar",
     "RelativePath": "api/usuarios",
     "HttpMethod": "GET",
@@ -1041,7 +1041,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.UsuarioService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Criar",
     "RelativePath": "api/usuarios",
     "HttpMethod": "POST",
@@ -1057,7 +1057,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.UsuarioService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "ObterPorId",
     "RelativePath": "api/usuarios/{id}",
     "HttpMethod": "GET",
@@ -1073,7 +1073,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.UsuarioService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Atualizar",
     "RelativePath": "api/usuarios/{id}",
     "HttpMethod": "PUT",
@@ -1094,7 +1094,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Application.Services.UsuarioService, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "ContainingType": "LudusGestao.API.Controllers.BaseCrudController\u00604[[LudusGestao.Core.Interfaces.Services.IBaseCrudService\u00603[[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], LudusGestao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO, LudusGestao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Remover",
     "RelativePath": "api/usuarios/{id}",
     "HttpMethod": "DELETE",

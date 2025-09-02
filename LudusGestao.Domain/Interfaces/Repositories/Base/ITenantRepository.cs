@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using LudusGestao.Core.Interfaces.Repositories.Base;
 
 namespace LudusGestao.Domain.Interfaces.Repositories.Base
 {
@@ -8,4 +6,4 @@ namespace LudusGestao.Domain.Interfaces.Repositories.Base
     {
         Task<IEnumerable<T>> ListarPorTenant(int TenantId);
     }
-} 
+}

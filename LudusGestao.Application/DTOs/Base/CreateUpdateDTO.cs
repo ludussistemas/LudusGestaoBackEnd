@@ -8,4 +8,4 @@ namespace LudusGestao.Application.DTOs.Base;
 public abstract class CreateUpdateDTO
 {
     // Propriedades comuns para criação/atualização podem ser adicionadas aqui
-} 
+}

@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Services.infra;
 

@@ -1,6 +1,4 @@
-using LudusGestao.Domain.Entities.Base;
-using System;
-using System.Collections.Generic;
+using LudusGestao.Core.Entities.Base;
 
 namespace LudusGestao.Domain.Entities.geral
 {
@@ -13,4 +11,4 @@ namespace LudusGestao.Domain.Entities.geral
         public List<Guid> Permissoes { get; set; } = new List<Guid>();
         public int TenantId { get; set; }
     }
-} 
+}

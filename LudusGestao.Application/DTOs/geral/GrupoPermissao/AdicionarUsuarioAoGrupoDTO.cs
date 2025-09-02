@@ -1,5 +1,3 @@
-using System;
-
 namespace LudusGestao.Application.DTOs.geral.GrupoPermissao
 {
     public class AdicionarUsuarioAoGrupoDTO

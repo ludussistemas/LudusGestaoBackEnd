@@ -4,4 +4,4 @@ namespace LudusGestao.Domain.Interfaces.Services.infra
     {
         Task<bool> SeedDadosBaseAsync();
     }
-} 
+}

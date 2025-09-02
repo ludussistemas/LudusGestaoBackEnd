@@ -1,6 +1,5 @@
 using LudusGestao.Application.DTOs.Auth;
-using LudusGestao.Application.Common.Models;
-using System.Threading.Tasks;
+using LudusGestao.Core.Models;
 
 namespace LudusGestao.Application.Common.Interfaces
 {
@@ -9,4 +8,4 @@ namespace LudusGestao.Application.Common.Interfaces
         Task<ApiResponse<TokenDTO>> LoginAsync(LoginDTO dto);
         Task<ApiResponse<TokenDTO>> RefreshAsync(RefreshTokenDTO dto);
     }
-} 
+}

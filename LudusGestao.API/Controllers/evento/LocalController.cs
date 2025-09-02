@@ -1,24 +1,19 @@
+using LudusGestao.Application.DTOs.evento.Local;
+using LudusGestao.Application.DTOs.infra.Utilitarios;
+using LudusGestao.Core.Controllers;
+using LudusGestao.Core.Models;
+using LudusGestao.Domain.Enums.eventos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.DTOs.Local;
-using LudusGestao.Application.Services;
-using LudusGestao.Application.Common.Models;
-using LudusGestao.Domain.Enums;
-using System;
-using System.Threading.Tasks;
-using System.Linq;
-using LudusGestao.API.Controllers;
-using LudusGestao.Domain.Enums.eventos;
-using LudusGestao.Application.DTOs.infra.Utilitarios;
 
 namespace LudusGestao.API.Controllers.eventos;
 
 [ApiController]
 [Route("api/locais")]
 [Authorize]
-public class LocaisController : BaseCrudController<LocalService, LocalDTO, CreateLocalDTO, UpdateLocalDTO>
+public class LocaisController : BaseCrudController<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LocalDTO, CreateLocalDTO, UpdateLocalDTO>, LocalDTO, CreateLocalDTO, UpdateLocalDTO>
 {
-    public LocaisController(LocalService service) : base(service) { }
+    public LocaisController(LudusGestao.Core.Interfaces.Services.IBaseCrudService<LocalDTO, CreateLocalDTO, UpdateLocalDTO> service) : base(service) { }
 
     [HttpGet("resumo")]
     public async Task<IActionResult> ObterResumo()
@@ -43,4 +38,4 @@ public class LocaisController : BaseCrudController<LocalService, LocalDTO, Creat
             return StatusCode(500, new ApiResponse<object>(default) { Success = false, Message = "Erro ao obter resumo de locais" });
         }
     }
-} 
+}

@@ -1,9 +1,8 @@
 // Arquivo criado para padronização da estrutura de DTOs 
 
 namespace LudusGestao.Application.DTOs.Filial;
-using System;
-using LudusGestao.Domain.Enums;
 using LudusGestao.Domain.Enums.geral;
+using System;
 
 public class UpdateFilialDTO
 {
@@ -20,4 +19,4 @@ public class UpdateFilialDTO
     public SituacaoBase Situacao { get; set; }
     public DateTime DataAbertura { get; set; }
     public Guid EmpresaId { get; set; }
-} 
+}

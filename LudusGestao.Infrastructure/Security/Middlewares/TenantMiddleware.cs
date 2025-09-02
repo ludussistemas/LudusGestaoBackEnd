@@ -1,8 +1,5 @@
-using Microsoft.AspNetCore.Http;
 using LudusGestao.Domain.Interfaces.Services;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 using System.Text.Json;
 
 namespace LudusGestao.Infrastructure.Security.Middlewares
@@ -41,14 +38,14 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             {
                 context.Response.StatusCode = 401;
                 context.Response.ContentType = "application/json";
-                
+
                 var errorResponse = new
                 {
                     success = false,
                     message = "Token de autenticação não fornecido ou inválido.",
                     statusCode = 401
                 };
-                
+
                 await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
                 return;
             }
@@ -59,14 +56,14 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             {
                 context.Response.StatusCode = 401;
                 context.Response.ContentType = "application/json";
-                
+
                 var errorResponse = new
                 {
                     success = false,
                     message = "TenantId não informado ou inválido no token.",
                     statusCode = 401
                 };
-                
+
                 await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
                 return;
             }
@@ -75,4 +72,4 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             await _next(context);
         }
     }
-} 
+}

@@ -1,6 +1,4 @@
-using LudusGestao.Domain.Enums;
 using LudusGestao.Domain.Enums.geral;
-using System;
 
 namespace LudusGestao.Application.DTOs.geral.GrupoPermissao
 {
@@ -14,4 +12,4 @@ namespace LudusGestao.Application.DTOs.geral.GrupoPermissao
         public SituacaoBase Situacao { get; set; }
         public int TenantId { get; set; }
     }
-} 
+}

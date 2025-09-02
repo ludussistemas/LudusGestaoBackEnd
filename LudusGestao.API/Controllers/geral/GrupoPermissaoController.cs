@@ -1,11 +1,9 @@
+using LudusGestao.Application.DTOs.geral.GrupoPermissao;
+using LudusGestao.Application.Services;
+using LudusGestao.Core.Controllers;
+using LudusGestao.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.Services;
-using LudusGestao.Application.Common.Models;
-using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using LudusGestao.Application.DTOs.geral.GrupoPermissao;
 
 namespace LudusGestao.API.Controllers.geral;
 
@@ -16,7 +14,7 @@ public class GruposPermissoesController : BaseCrudController<GrupoPermissaoServi
 {
     private readonly GrupoPermissaoService _grupoService;
 
-    public GruposPermissoesController(GrupoPermissaoService service) : base(service) 
+    public GruposPermissoesController(GrupoPermissaoService service) : base(service)
     {
         _grupoService = service;
     }
@@ -67,4 +65,4 @@ public class GruposPermissoesController : BaseCrudController<GrupoPermissaoServi
 public class AdicionarUsuarioAoGrupoDTO
 {
     public Guid UsuarioId { get; set; }
-} 
+}

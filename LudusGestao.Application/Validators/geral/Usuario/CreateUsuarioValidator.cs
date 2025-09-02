@@ -13,4 +13,4 @@ namespace LudusGestao.Application.Validators.geral.Usuario
             RuleFor(x => x.EmpresaId).NotEmpty().WithMessage("A empresa é obrigatória.");
         }
     }
-} 
+}

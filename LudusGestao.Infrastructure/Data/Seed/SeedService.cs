@@ -1,17 +1,11 @@
-using LudusGestao.Domain.Interfaces.Services.infra;
-using LudusGestao.Domain.Entities;
-using LudusGestao.Domain.Enums;
-using LudusGestao.Infrastructure.Data.Context;
-using System;
-using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using LudusGestao.Domain.Entities.eventos;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Enums.eventos;
-using LudusGestao.Domain.Entities.eventos;
 using LudusGestao.Domain.Enums.geral;
 using LudusGestao.Domain.Interfaces.Services;
+using LudusGestao.Domain.Interfaces.Services.infra;
+using LudusGestao.Infrastructure.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace LudusGestao.Infrastructure.Data.Seed
 {
@@ -311,14 +305,11 @@ namespace LudusGestao.Infrastructure.Data.Seed
                 Id = Guid.NewGuid(),
                 ClienteId = cliente.Id,
                 LocalId = local.Id,
-                Data = DateTime.UtcNow.Date.AddDays(1),
-                HoraInicio = "10:00",
-                HoraFim = "11:00",
-                Situacao = SituacaoReserva.Confirmado,
-                Cor = "#00FF00",
-                Esporte = "Futebol",
-                Observacoes = "Reserva teste",
+                DataInicio = DateTime.UtcNow.Date.AddDays(1).AddHours(10),
+                DataFim = DateTime.UtcNow.Date.AddDays(1).AddHours(11),
+                Situacao = SituacaoReserva.Confirmada,
                 Valor = 100.00m,
+                Observacoes = "Reserva teste",
                 TenantId = tenantId,
                 DataCriacao = DateTime.UtcNow
             };
@@ -352,7 +343,7 @@ namespace LudusGestao.Infrastructure.Data.Seed
             foreach (var (nome, descricao) in permissoes)
             {
                 var (submodulo, acao) = ParsePermissao(nome);
-                
+
                 lista.Add(new Permissao
                 {
                     Id = Guid.NewGuid(),

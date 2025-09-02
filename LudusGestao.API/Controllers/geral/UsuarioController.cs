@@ -1,17 +1,14 @@
+using LudusGestao.Application.DTOs.Usuario;
+using LudusGestao.Core.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.DTOs.Usuario;
-using LudusGestao.Application.Services;
-using System;
-using System.Threading.Tasks;
-using LudusGestao.API.Controllers;
 
 namespace LudusGestao.API.Controllers.geral;
 
 [ApiController]
 [Route("api/usuarios")]
 [Authorize]
-public class UsuariosController : BaseCrudController<UsuarioService, UsuarioDTO, CreateUsuarioDTO, UpdateUsuarioDTO>
+public class UsuariosController : BaseCrudController<LudusGestao.Core.Interfaces.Services.IBaseCrudService<UsuarioDTO, CreateUsuarioDTO, UpdateUsuarioDTO>, UsuarioDTO, CreateUsuarioDTO, UpdateUsuarioDTO>
 {
-    public UsuariosController(UsuarioService service) : base(service) { }
-} 
+    public UsuariosController(LudusGestao.Core.Interfaces.Services.IBaseCrudService<UsuarioDTO, CreateUsuarioDTO, UpdateUsuarioDTO> service) : base(service) { }
+}

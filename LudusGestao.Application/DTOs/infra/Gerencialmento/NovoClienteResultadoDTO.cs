@@ -12,4 +12,4 @@ namespace LudusGestao.Application.DTOs.Gerencialmento
         public UsuarioDTO UsuarioAdmin { get; set; }
         public string SenhaPadrao { get; set; }
     }
-} 
+}

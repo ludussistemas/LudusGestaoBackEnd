@@ -1,9 +1,8 @@
+using LudusGestao.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
-using System;
+using Microsoft.Extensions.DependencyInjection;
 using System.Net;
 using System.Text.Json;
-using System.Threading.Tasks;
-using LudusGestao.Domain.Common.Exceptions;
 
 namespace LudusGestao.Infrastructure.Security.Middlewares
 {
@@ -32,16 +31,10 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
         {
             context.Response.ContentType = "application/json";
 
-            var (statusCode, message) = exception switch
-            {
-                UnauthorizedAccessException => (HttpStatusCode.Unauthorized, exception.Message),
-                ValidationException => (HttpStatusCode.BadRequest, exception.Message),
-                NotFoundException => (HttpStatusCode.NotFound, exception.Message),
-                TenantNotFoundException => (HttpStatusCode.NotFound, exception.Message),
-                PermissionDeniedException => (HttpStatusCode.Forbidden, exception.Message),
-                DomainException => (HttpStatusCode.BadRequest, exception.Message),
-                _ => (HttpStatusCode.InternalServerError, "Ocorreu um erro interno no servidor.")
-            };
+            var serviceProvider = context.RequestServices;
+            var exceptionHandlers = serviceProvider.GetServices<IExceptionHandler>();
+
+            var (statusCode, message) = GetExceptionResponse(exception, exceptionHandlers);
 
             context.Response.StatusCode = (int)statusCode;
 
@@ -55,5 +48,21 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
 
             await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
         }
+
+        private static (HttpStatusCode statusCode, string message) GetExceptionResponse(
+            Exception exception,
+            IEnumerable<IExceptionHandler> handlers)
+        {
+            foreach (var handler in handlers)
+            {
+                if (handler.CanHandle(exception))
+                {
+                    return handler.Handle(exception);
+                }
+            }
+
+            // Fallback para exceção não tratada
+            return (HttpStatusCode.InternalServerError, "Ocorreu um erro interno no servidor.");
+        }
     }
-} 
+}

@@ -1,23 +1,16 @@
+using LudusGestao.Core.Entities.Base;
+using LudusGestao.Core.Exceptions;
+using LudusGestao.Core.Interfaces.Infrastructure;
+using LudusGestao.Domain.Entities.eventos;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Interfaces.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using LudusGestao.Domain.Entities;
-using LudusGestao.Domain.Entities.Base;
-using LudusGestao.Domain.Interfaces.Services;
-using System;
-using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
-using BCrypt.Net;
-using System.Threading;
-using System.Threading.Tasks;
-using LudusGestao.Domain.Common.Exceptions;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Entities.eventos;
 
 
 namespace LudusGestao.Infrastructure.Data.Context
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext, IUnitOfWork
     {
         private readonly ITenantService _tenantService;
 
@@ -60,7 +53,7 @@ namespace LudusGestao.Infrastructure.Data.Context
             }
 
 
-            
+
             // Configuração para List<string> Comodidades
             modelBuilder.Entity<Local>()
                 .Property(l => l.Comodidades)
@@ -72,7 +65,7 @@ namespace LudusGestao.Infrastructure.Data.Context
                     (c1, c2) => c1.SequenceEqual(c2),
                     c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
                     c => c.ToList()));
-            
+
             // Configuração para List<Guid> Permissoes
             modelBuilder.Entity<GrupoPermissaoFilial>()
                 .Property(g => g.Permissoes)
@@ -95,36 +88,34 @@ namespace LudusGestao.Infrastructure.Data.Context
                     (c1, c2) => c1.SequenceEqual(c2),
                     c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
                     c => c.ToList()));
-            
+
             // Configuração para propriedades opcionais
             modelBuilder.Entity<Usuario>()
                 .Property(u => u.Foto)
                 .IsRequired(false);
-            
+
             modelBuilder.Entity<Cliente>()
                 .Property(c => c.Observacoes)
                 .IsRequired(false);
-            
+
             modelBuilder.Entity<Cliente>()
                 .Property(c => c.DataAtualizacao)
                 .IsRequired(false);
-            
+
             modelBuilder.Entity<Reserva>()
                 .Property(r => r.Observacoes)
                 .IsRequired(false);
-            
+
             modelBuilder.Entity<Local>()
                 .Property(l => l.Descricao)
                 .IsRequired(false);
-            
+
             modelBuilder.Entity<Local>()
                 .Property(l => l.Capacidade)
                 .IsRequired(false);
-            
-            modelBuilder.Entity<Reserva>()
-                .Property(r => r.UsuarioId)
-                .IsRequired(false);
-            
+
+
+
             modelBuilder.Entity<Recebivel>()
                 .Property(r => r.ReservaId)
                 .IsRequired(false);
@@ -142,27 +133,20 @@ namespace LudusGestao.Infrastructure.Data.Context
         public override int SaveChanges()
         {
             SetAndValidateTenantIds();
+            SetTimestamps();
             return base.SaveChanges();
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             SetAndValidateTenantIds();
+            SetTimestamps();
             return await base.SaveChangesAsync(cancellationToken);
         }
 
-        // Método específico para seed que não valida tenant
-        public async Task<int> SaveChangesWithoutTenantValidationAsync(CancellationToken cancellationToken = default)
-        {
-            return await base.SaveChangesAsync(cancellationToken);
-        }
-
-        // Método específico para seed que não chama nenhuma validação
-        public async Task<int> SaveChangesForSeedAsync(CancellationToken cancellationToken = default)
-        {
-            // Salva diretamente sem chamar SetAndValidateTenantIds
-            return await base.SaveChangesAsync(cancellationToken);
-        }
+        // Métodos de seed preservados, se necessários, podem chamar base.SaveChangesAsync diretamente
+        public async Task<int> SaveChangesWithoutTenantValidationAsync(CancellationToken cancellationToken = default) => await base.SaveChangesAsync(cancellationToken);
+        public async Task<int> SaveChangesForSeedAsync(CancellationToken cancellationToken = default) => await base.SaveChangesAsync(cancellationToken);
 
         private void SetAndValidateTenantIds()
         {
@@ -179,7 +163,7 @@ namespace LudusGestao.Infrastructure.Data.Context
                         // Tenta atribuir o TenantId do contexto
                         var currentTenantId = _tenantService.GetTenantId();
                         if (currentTenantId == 0)
-                            throw new LudusGestao.Domain.Common.Exceptions.ValidationException("TenantId não pode ser 0. Operação não permitida.");
+                            throw new ValidationException("TenantId não pode ser 0. Operação não permitida.");
                         tenantEntity.TenantId = currentTenantId;
                     }
                     // Remove a validação que impedia TenantId = 0, pois no seed definimos manualmente
@@ -187,6 +171,31 @@ namespace LudusGestao.Infrastructure.Data.Context
             }
         }
 
+        private void SetTimestamps()
+        {
+            var entries = ChangeTracker.Entries()
+                .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
 
+            foreach (var entry in entries)
+            {
+                if (entry.Entity is BaseEntity baseEntity)
+                {
+                    if (entry.State == EntityState.Added)
+                    {
+                        baseEntity.DataCriacao = DateTime.UtcNow;
+                        baseEntity.DataAtualizacao = null;
+                    }
+                    else if (entry.State == EntityState.Modified)
+                    {
+                        baseEntity.DataAtualizacao = DateTime.UtcNow;
+                    }
+                }
+            }
+        }
+
+        public async Task CommitAsync()
+        {
+            await SaveChangesAsync();
+        }
     }
-} 
+}

@@ -1,17 +1,14 @@
+using LudusGestao.Application.DTOs.Empresa;
+using LudusGestao.Core.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.DTOs.Empresa;
-using LudusGestao.Application.Services;
-using System;
-using System.Threading.Tasks;
-using LudusGestao.API.Controllers;
 
 namespace LudusGestao.API.Controllers.geral;
 
 [ApiController]
 [Route("api/empresas")]
 [Authorize]
-public class EmpresasController : BaseCrudController<EmpresaService, EmpresaDTO, CreateEmpresaDTO, UpdateEmpresaDTO>
+public class EmpresasController : BaseCrudController<LudusGestao.Core.Interfaces.Services.IBaseCrudService<EmpresaDTO, CreateEmpresaDTO, UpdateEmpresaDTO>, EmpresaDTO, CreateEmpresaDTO, UpdateEmpresaDTO>
 {
-    public EmpresasController(EmpresaService service) : base(service) { }
-} 
+    public EmpresasController(LudusGestao.Core.Interfaces.Services.IBaseCrudService<EmpresaDTO, CreateEmpresaDTO, UpdateEmpresaDTO> service) : base(service) { }
+}

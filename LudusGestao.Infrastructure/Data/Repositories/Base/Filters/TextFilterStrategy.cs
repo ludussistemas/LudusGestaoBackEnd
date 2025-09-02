@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace LudusGestao.Infrastructure.Data.Repositories.Base.Filters
 {
     public class TextFilterStrategy : IFilterStrategy
@@ -14,7 +12,7 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base.Filters
             if (string.IsNullOrEmpty(searchTerm)) return query;
 
             var textFields = new[] { "Nome", "Email", "Documento", "Telefone", "Observacoes", "Esporte" };
-            
+
             var parameter = System.Linq.Expressions.Expression.Parameter(typeof(T), "x");
             var searchConstant = System.Linq.Expressions.Expression.Constant(searchTerm.ToLower());
             var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
@@ -39,7 +37,7 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base.Filters
 
             if (conditions.Any())
             {
-                var combinedCondition = conditions.Aggregate((a, b) => 
+                var combinedCondition = conditions.Aggregate((a, b) =>
                     System.Linq.Expressions.Expression.Or(a, b));
                 var lambda = System.Linq.Expressions.Expression.Lambda<Func<T, bool>>(combinedCondition, parameter);
                 return query.Where(lambda);

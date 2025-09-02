@@ -1,8 +1,6 @@
-using LudusGestao.Domain.Entities.Base;
+using LudusGestao.Core.Entities.Base;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Enums.eventos;
-using System;
-using System.Collections.Generic;
 
 namespace LudusGestao.Domain.Entities.eventos
 {
@@ -23,4 +21,4 @@ namespace LudusGestao.Domain.Entities.eventos
         public Filial Filial { get; set; } = null!;
         public int TenantId { get; set; }
     }
-} 
+}

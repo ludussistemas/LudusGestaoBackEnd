@@ -1,10 +1,7 @@
-using System;
-using System.Threading.Tasks;
-using LudusGestao.Domain.Interfaces.Repositories.geral;
-using LudusGestao.Application.DTOs.Gerencialmento;
+using LudusGestao.Core.Constants;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Enums.geral;
-using LudusGestao.Domain.Common.Constants;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Services.infra;
 
 namespace LudusGestao.Application.Services
@@ -23,7 +20,7 @@ namespace LudusGestao.Application.Services
             var senhaPadrao = UserConstants.DefaultAdminPassword;
             var senhaHash = BCrypt.Net.BCrypt.HashPassword(senhaPadrao);
             var emailUsuario = $"administrador@{nome.Replace(" ", "").ToLower()}.com.br";
-            
+
             var usuario = new Usuario
             {
                 Id = Guid.NewGuid(),

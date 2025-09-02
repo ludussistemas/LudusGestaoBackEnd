@@ -1,6 +1,5 @@
-using LudusGestao.Domain.Entities.Base;
+using LudusGestao.Core.Entities.Base;
 using LudusGestao.Domain.Enums.geral;
-using System;
 
 namespace LudusGestao.Domain.Entities.geral
 {
@@ -22,4 +21,4 @@ namespace LudusGestao.Domain.Entities.geral
         public Guid EmpresaId { get; set; }
         public Empresa Empresa { get; set; } = null!;
     }
-} 
+}

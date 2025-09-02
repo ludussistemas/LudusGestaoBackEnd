@@ -1,24 +1,19 @@
+using LudusGestao.Application.DTOs.infra.Utilitarios;
+using LudusGestao.Application.DTOs.reserva.Cliente;
+using LudusGestao.Core.Controllers;
+using LudusGestao.Core.Models;
+using LudusGestao.Domain.Enums.eventos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.Services;
-using LudusGestao.Application.Common.Models;
-using LudusGestao.Domain.Enums;
-using System;
-using System.Threading.Tasks;
-using System.Linq;
-using LudusGestao.API.Controllers;
-using LudusGestao.Domain.Enums.eventos;
-using LudusGestao.Application.DTOs.reserva.Cliente;
-using LudusGestao.Application.DTOs.infra.Utilitarios;
 
 namespace LudusGestao.API.Controllers.eventos;
 
 [ApiController]
 [Route("api/clientes")]
 [Authorize]
-public class ClientesController : BaseCrudController<ClienteService, ClienteDTO, CreateClienteDTO, UpdateClienteDTO>
+public class ClientesController : BaseCrudController<LudusGestao.Core.Interfaces.Services.IBaseCrudService<ClienteDTO, CreateClienteDTO, UpdateClienteDTO>, ClienteDTO, CreateClienteDTO, UpdateClienteDTO>
 {
-    public ClientesController(ClienteService service) : base(service) { }
+    public ClientesController(LudusGestao.Core.Interfaces.Services.IBaseCrudService<ClienteDTO, CreateClienteDTO, UpdateClienteDTO> service) : base(service) { }
 
     [HttpGet("resumo")]
     public async Task<IActionResult> ObterResumo()
@@ -33,8 +28,8 @@ public class ClientesController : BaseCrudController<ClienteService, ClienteDTO,
                 TotalClientes = clientes.Count(),
                 Ativos = clientes.Count(c => c.Situacao == SituacaoCliente.Ativo.ToString()),
                 Inativos = clientes.Count(c => c.Situacao == SituacaoCliente.Inativo.ToString()),
-                NovosMes = clientes.Count(c => 
-                    c.DataCriacao.Year == dataAtual.Year && 
+                NovosMes = clientes.Count(c =>
+                    c.DataCriacao.Year == dataAtual.Year &&
                     c.DataCriacao.Month == dataAtual.Month),
                 PessoaJuridica = clientes.Count(c => c.Documento.Length > 11)
             };
@@ -46,4 +41,4 @@ public class ClientesController : BaseCrudController<ClienteService, ClienteDTO,
             return StatusCode(500, new ApiResponse<object>(default) { Success = false, Message = "Erro ao obter resumo de clientes" });
         }
     }
-} 
+}

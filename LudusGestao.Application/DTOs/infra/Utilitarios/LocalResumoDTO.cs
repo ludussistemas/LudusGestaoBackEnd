@@ -7,4 +7,4 @@ public class LocalResumoDTO
     public int Inativos { get; set; }
     public int Manutencao { get; set; }
     public decimal ValorMedioHora { get; set; }
-} 
+}

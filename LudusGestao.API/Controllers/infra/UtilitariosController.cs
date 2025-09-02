@@ -1,11 +1,8 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.Common.Models;
-using LudusGestao.Domain.Interfaces.Services.infra;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Text.Json;
 using LudusGestao.Application.DTOs.infra.Utilitarios;
+using LudusGestao.Core.Models;
+using LudusGestao.Domain.Interfaces.Services.infra;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace LudusGestao.API.Controllers.infra;
 
@@ -29,14 +26,14 @@ public class UtilitariosController : ControllerBase
         {
             // Remove caracteres não numéricos do CEP
             var cepLimpo = new string(cep.Where(char.IsDigit).ToArray());
-            
+
             if (cepLimpo.Length != 8)
                 return BadRequest(new ApiResponse<object>(default) { Success = false, Message = "CEP deve conter 8 dígitos" });
 
             // Busca na API ViaCEP
             var httpClient = _httpClientFactory.CreateClient();
             var response = await httpClient.GetAsync($"https://viacep.com.br/ws/{cepLimpo}/json/");
-            
+
             if (!response.IsSuccessStatusCode)
                 return NotFound(new ApiResponse<object>(default) { Success = false, Message = "CEP não encontrado" });
 
@@ -70,7 +67,7 @@ public class UtilitariosController : ControllerBase
         try
         {
             var resultado = await _seedService.SeedDadosBaseAsync();
-            
+
             if (resultado)
             {
                 return Ok(new { message = "Dados base inseridos com sucesso!" });
@@ -101,4 +98,4 @@ public class ViaCepResponse
     public string Ddd { get; set; }
     public string Siafi { get; set; }
     public bool? Erro { get; set; }
-} 
+}
