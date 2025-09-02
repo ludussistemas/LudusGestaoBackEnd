@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
-using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Application.DTOs.Gerencialmento;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Enums.geral;
 using LudusGestao.Domain.Common.Constants;
+using LudusGestao.Domain.Interfaces.Services.infra;
 
 namespace LudusGestao.Application.Services
 {

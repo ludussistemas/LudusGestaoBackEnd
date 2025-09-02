@@ -30,6 +30,7 @@ using Microsoft.OpenApi.Models;
 using LudusGestao.Domain.Common.Constants;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Repositories.eventos;
+using LudusGestao.Domain.Interfaces.Services.geral;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -139,7 +140,7 @@ builder.Services.AddScoped<RecebivelService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
 // Registrar AuthService da Infrastructure para a interface de domínio
-builder.Services.AddScoped<LudusGestao.Domain.Interfaces.Services.IAuthService, LudusGestao.Infrastructure.Security.AuthService>();
+builder.Services.AddScoped<LudusGestao.Domain.Interfaces.Services.autenticacao.IAuthService, LudusGestao.Infrastructure.Security.AuthService>();
 // Registrar AuthService da Application para uso na controller
 builder.Services.AddScoped<LudusGestao.Application.Services.AuthService>();
 builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();

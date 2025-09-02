@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using LudusGestao.Domain.Entities;
-using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Domain.Interfaces.Repositories;
 
 using BCrypt.Net;
 using System.Linq;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
+using LudusGestao.Domain.Interfaces.Services.autenticacao;
 
 namespace LudusGestao.Infrastructure.Security
 {

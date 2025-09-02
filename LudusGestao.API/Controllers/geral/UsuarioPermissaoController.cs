@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using LudusGestao.Application.DTOs.Usuario;
 using LudusGestao.Application.Common.Models;
-using LudusGestao.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LudusGestao.Domain.Interfaces.Services.geral;
 
 namespace LudusGestao.API.Controllers.geral
 {

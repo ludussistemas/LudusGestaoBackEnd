@@ -1,16 +1,16 @@
 using AutoMapper;
-using LudusGestao.Application.DTOs.Reserva;
-using LudusGestao.Application.DTOs.Cliente;
 using LudusGestao.Application.DTOs.Filial;
 using LudusGestao.Application.DTOs.Local;
 using LudusGestao.Application.DTOs.Recebivel;
 using LudusGestao.Application.DTOs.Usuario;
 using LudusGestao.Domain.Entities;
 using LudusGestao.Application.DTOs.Empresa;
-using LudusGestao.Application.DTOs.GrupoPermissao;
-using LudusGestao.Application.DTOs.Permissao;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Entities.eventos;
+using LudusGestao.Application.DTOs.geral.GrupoPermissao;
+using LudusGestao.Application.DTOs.geral.Permissao;
+using LudusGestao.Application.DTOs.reserva.Reservas;
+using LudusGestao.Application.DTOs.reserva.Cliente;
 
 namespace LudusGestao.Application.Mappings
 {

@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using LudusGestao.Domain.Interfaces.Services;
+using LudusGestao.Domain.Interfaces.Services.geral;
 
 namespace LudusGestao.Infrastructure.Security.Services
 {

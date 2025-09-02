@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using LudusGestao.Domain.Interfaces.Services.geral;
 
 namespace LudusGestao.Infrastructure.Security.Middlewares
 {

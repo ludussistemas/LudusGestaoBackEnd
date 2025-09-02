@@ -1,5 +1,4 @@
 using LudusGestao.Application.Common.Interfaces;
-using LudusGestao.Application.DTOs.Permissao;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Repositories.Base;
@@ -9,6 +8,7 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LudusGestao.Application.DTOs.geral.Permissao;
 
 namespace LudusGestao.Application.Services
 {

@@ -1,5 +1,4 @@
 using LudusGestao.Application.Common.Interfaces;
-using LudusGestao.Application.DTOs.GrupoPermissao;
 using LudusGestao.Domain.Entities.geral;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Interfaces.Repositories.Base;
@@ -10,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using LudusGestao.Application.DTOs.geral.GrupoPermissao;
 
 namespace LudusGestao.Application.Services
 {

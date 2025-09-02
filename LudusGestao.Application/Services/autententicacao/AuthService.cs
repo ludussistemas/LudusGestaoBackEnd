@@ -1,11 +1,11 @@
 using LudusGestao.Application.DTOs.Auth;
 using LudusGestao.Application.Common.Models;
-using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Application.DTOs.Usuario;
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using LudusGestao.Domain.Interfaces.Services.autenticacao;
 
 namespace LudusGestao.Application.Services
 {

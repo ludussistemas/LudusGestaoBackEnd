@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
-using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
+using LudusGestao.Domain.Interfaces.Services.infra;
 
 namespace LudusGestao.Application.Services
 {

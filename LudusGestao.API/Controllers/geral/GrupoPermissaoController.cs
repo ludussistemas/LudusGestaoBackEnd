@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using LudusGestao.Application.DTOs.GrupoPermissao;
 using LudusGestao.Application.Services;
 using LudusGestao.Application.Common.Models;
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using LudusGestao.Application.DTOs.geral.GrupoPermissao;
 
 namespace LudusGestao.API.Controllers.geral;
 

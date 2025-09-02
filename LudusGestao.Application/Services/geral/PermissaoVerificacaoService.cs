@@ -1,10 +1,10 @@
-using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
 using LudusGestao.Domain.Entities.geral;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LudusGestao.Domain.Interfaces.Services.geral;
 
 namespace LudusGestao.Application.Services
 {
