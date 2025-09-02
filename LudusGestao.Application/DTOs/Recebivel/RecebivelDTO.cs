@@ -5,6 +5,7 @@ using System;
 using LudusGestao.Domain.Enums;
 using LudusGestao.Application.DTOs.Cliente;
 using LudusGestao.Application.DTOs.Reserva;
+using LudusGestao.Domain.Enums.eventos;
 
 public class RecebivelDTO
 {

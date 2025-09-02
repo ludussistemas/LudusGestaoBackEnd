@@ -2,6 +2,7 @@ namespace LudusGestao.Application.DTOs.Usuario;
 using System;
 using System.Collections.Generic;
 using LudusGestao.Domain.Enums;
+using LudusGestao.Domain.Enums.geral;
 
 public class UsuarioDTO
 {

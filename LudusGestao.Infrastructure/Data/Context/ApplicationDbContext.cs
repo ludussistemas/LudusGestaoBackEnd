@@ -11,6 +11,8 @@ using BCrypt.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using LudusGestao.Domain.Common.Exceptions;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Entities.eventos;
 
 
 namespace LudusGestao.Infrastructure.Data.Context

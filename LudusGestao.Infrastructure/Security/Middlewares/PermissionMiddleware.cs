@@ -94,7 +94,11 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
 
         private Guid? ExtractUserId(ClaimsPrincipal user)
         {
-            var userIdClaim = user.Claims.FirstOrDefault(c => c.Type == "UserId" || c.Type == "sub");
+            var userIdClaim = user.Claims.FirstOrDefault(c =>
+                c.Type == ClaimTypes.NameIdentifier ||
+                c.Type == "sub" ||
+                c.Type == "UserId");
+
             if (userIdClaim != null && Guid.TryParse(userIdClaim.Value, out var userId))
             {
                 return userId;

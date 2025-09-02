@@ -12,6 +12,8 @@ using LudusGestao.Domain.Interfaces.Repositories;
 
 using BCrypt.Net;
 using System.Linq;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
 
 namespace LudusGestao.Infrastructure.Security
 {

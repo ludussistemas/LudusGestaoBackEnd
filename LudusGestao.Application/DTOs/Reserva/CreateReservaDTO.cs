@@ -1,4 +1,4 @@
-using LudusGestao.Domain.Enums;
+using LudusGestao.Domain.Enums.eventos;
 using System;
 
 namespace LudusGestao.Application.DTOs.Reserva;

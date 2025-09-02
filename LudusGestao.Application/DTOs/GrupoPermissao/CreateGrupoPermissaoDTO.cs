@@ -1,4 +1,5 @@
 using LudusGestao.Domain.Enums;
+using LudusGestao.Domain.Enums.geral;
 
 namespace LudusGestao.Application.DTOs.GrupoPermissao
 {

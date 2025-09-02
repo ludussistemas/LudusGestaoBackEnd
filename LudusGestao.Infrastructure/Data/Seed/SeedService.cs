@@ -7,22 +7,32 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Enums.eventos;
+using LudusGestao.Domain.Entities.eventos;
+using LudusGestao.Domain.Enums.geral;
+using LudusGestao.Domain.Interfaces.Services;
 
 namespace LudusGestao.Infrastructure.Data.Seed
 {
     public class SeedService : ISeedService
     {
         private readonly ApplicationDbContext _context;
+        private readonly ITenantService _tenantService;
 
-        public SeedService(ApplicationDbContext context)
+        public SeedService(ApplicationDbContext context, ITenantService tenantService)
         {
             _context = context;
+            _tenantService = tenantService;
         }
 
         public async Task<bool> SeedDadosBaseAsync()
         {
             try
             {
+                // Garantir que o filtro global de tenant tenha um TenantId válido durante o seed
+                _tenantService.SetTenant("1");
+
                 // Verificar se já existem dados
                 if (await _context.Empresas.AnyAsync())
                 {
@@ -219,7 +229,25 @@ namespace LudusGestao.Infrastructure.Data.Seed
             var grupoAdmin = await _context.GruposPermissoes
                 .FirstOrDefaultAsync(g => g.Nome == "Administrador");
 
-            // 4. Criar Usuário Administrador
+            // 4. Vincular grupo Administrador à filial com TODAS as permissões
+            if (grupoAdmin != null)
+            {
+                var todasPermissoes = await _context.Permissoes.ToListAsync();
+
+                var grupoPermissaoFilial = new GrupoPermissaoFilial
+                {
+                    Id = Guid.NewGuid(),
+                    GrupoPermissaoId = grupoAdmin.Id,
+                    FilialId = filial.Id,
+                    Permissoes = todasPermissoes.Select(p => p.Id).ToList(),
+                    TenantId = tenantId,
+                    DataCriacao = DateTime.UtcNow
+                };
+
+                await _context.GruposPermissoesFiliais.AddAsync(grupoPermissaoFilial);
+            }
+
+            // 5. Criar Usuário Administrador
             var usuarioAdmin = new Usuario
             {
                 Id = Guid.NewGuid(),
@@ -231,7 +259,7 @@ namespace LudusGestao.Infrastructure.Data.Seed
                 GrupoPermissaoId = grupoAdmin?.Id,
                 Situacao = SituacaoBase.Ativo,
                 UltimoAcesso = DateTime.UtcNow,
-                Senha = "Ludus@2024", // Em produção, deve ser hash
+                Senha = BCrypt.Net.BCrypt.HashPassword("Ludus@2024"),
                 TenantId = tenantId,
                 DataCriacao = DateTime.UtcNow
             };
@@ -283,7 +311,7 @@ namespace LudusGestao.Infrastructure.Data.Seed
                 Id = Guid.NewGuid(),
                 ClienteId = cliente.Id,
                 LocalId = local.Id,
-                Data = DateTime.Today.AddDays(1),
+                Data = DateTime.UtcNow.Date.AddDays(1),
                 HoraInicio = "10:00",
                 HoraFim = "11:00",
                 Situacao = SituacaoReserva.Confirmado,
@@ -304,7 +332,7 @@ namespace LudusGestao.Infrastructure.Data.Seed
                 ClienteId = cliente.Id,
                 Descricao = "Recebimento teste",
                 Valor = 100.00m,
-                DataVencimento = DateTime.Today.AddDays(30),
+                DataVencimento = DateTime.UtcNow.Date.AddDays(30),
                 Situacao = SituacaoRecebivel.Aberto,
                 ReservaId = reserva.Id,
                 TenantId = tenantId,
@@ -333,7 +361,7 @@ namespace LudusGestao.Infrastructure.Data.Seed
                     ModuloPai = moduloPai,
                     Submodulo = submodulo,
                     Acao = acao,
-                    Situacao = SituacaoBase.Ativo,
+                    Situacao = Domain.Enums.geral.SituacaoBase.Ativo,
                     TenantId = tenantId,
                     DataCriacao = DateTime.UtcNow
                 });

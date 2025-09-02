@@ -9,6 +9,8 @@ using LudusGestao.Domain.Entities;
 using LudusGestao.Application.DTOs.Empresa;
 using LudusGestao.Application.DTOs.GrupoPermissao;
 using LudusGestao.Application.DTOs.Permissao;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Entities.eventos;
 
 namespace LudusGestao.Application.Mappings
 {

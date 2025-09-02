@@ -4,6 +4,7 @@ namespace LudusGestao.Application.DTOs.Filial;
 using System;
 using LudusGestao.Domain.Enums;
 using LudusGestao.Application.DTOs.Empresa;
+using LudusGestao.Domain.Enums.geral;
 
 public class FilialDTO
 {

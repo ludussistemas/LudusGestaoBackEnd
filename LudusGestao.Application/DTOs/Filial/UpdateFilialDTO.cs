@@ -3,6 +3,7 @@
 namespace LudusGestao.Application.DTOs.Filial;
 using System;
 using LudusGestao.Domain.Enums;
+using LudusGestao.Domain.Enums.geral;
 
 public class UpdateFilialDTO
 {

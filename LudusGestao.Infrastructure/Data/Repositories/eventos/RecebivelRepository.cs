@@ -9,6 +9,7 @@ using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LudusGestao.Domain.Entities.eventos;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.eventos;
 

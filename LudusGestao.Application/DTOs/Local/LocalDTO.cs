@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using LudusGestao.Domain.Enums;
 using LudusGestao.Application.DTOs.Filial;
+using LudusGestao.Domain.Enums.eventos;
 
 public class LocalDTO
 {

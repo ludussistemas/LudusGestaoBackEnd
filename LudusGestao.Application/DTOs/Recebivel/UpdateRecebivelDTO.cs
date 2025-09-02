@@ -3,6 +3,7 @@
 namespace LudusGestao.Application.DTOs.Recebivel;
 using System;
 using LudusGestao.Domain.Enums;
+using LudusGestao.Domain.Enums.eventos;
 
 public class UpdateRecebivelDTO
 {

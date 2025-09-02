@@ -7,6 +7,8 @@ using LudusGestao.Infrastructure.Data.Repositories.Base;
 using LudusGestao.Domain.Interfaces.Repositories.Base;
 using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
 using Microsoft.EntityFrameworkCore;
+using LudusGestao.Domain.Interfaces.Repositories.eventos;
+using LudusGestao.Domain.Entities.eventos;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.eventos;
 

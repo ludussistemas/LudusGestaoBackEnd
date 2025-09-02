@@ -10,6 +10,8 @@ using LudusGestao.Infrastructure.Data.Context;
 using LudusGestao.Infrastructure.Data.Repositories.Base;
 using LudusGestao.Domain.Interfaces.Repositories.Base;
 using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
+using LudusGestao.Domain.Entities.eventos;
+using LudusGestao.Domain.Interfaces.Repositories.eventos;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.eventos
 {

@@ -3,6 +3,7 @@ using System;
 using LudusGestao.Application.DTOs.Cliente;
 using LudusGestao.Application.DTOs.Local;
 using LudusGestao.Application.DTOs.Usuario;
+using LudusGestao.Domain.Enums.eventos;
 
 namespace LudusGestao.Application.DTOs.Reserva;
 

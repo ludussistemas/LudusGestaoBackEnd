@@ -9,6 +9,7 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 using LudusGestao.API.Controllers;
+using LudusGestao.Domain.Enums.eventos;
 
 namespace LudusGestao.API.Controllers.eventos;
 

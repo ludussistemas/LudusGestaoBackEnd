@@ -28,6 +28,8 @@ using FluentValidation.AspNetCore;
 using LudusGestao.Domain.Entities;
 using Microsoft.OpenApi.Models;
 using LudusGestao.Domain.Common.Constants;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
+using LudusGestao.Domain.Interfaces.Repositories.eventos;
 
 var builder = WebApplication.CreateBuilder(args);
 

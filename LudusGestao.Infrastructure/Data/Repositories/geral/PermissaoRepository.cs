@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Interfaces.Repositories.geral;
 
 namespace LudusGestao.Infrastructure.Data.Repositories.geral
 {
