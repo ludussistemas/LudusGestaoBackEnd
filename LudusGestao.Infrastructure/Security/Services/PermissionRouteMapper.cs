@@ -10,10 +10,10 @@ namespace LudusGestao.Infrastructure.Security.Services
             {
                 return method switch
                 {
-                    "GET" => "empresa.visualizar",
-                    "POST" => "empresa.criar",
-                    "PUT" => "empresa.editar",
-                    "DELETE" => "empresa.excluir",
+                    "GET" => "configuracoes.empresa.visualizar",
+                    "POST" => "configuracoes.empresa.criar",
+                    "PUT" => "configuracoes.empresa.editar",
+                    "DELETE" => "configuracoes.empresa.excluir",
                     _ => null
                 };
             }
@@ -22,10 +22,10 @@ namespace LudusGestao.Infrastructure.Security.Services
             {
                 return method switch
                 {
-                    "GET" => "filial.visualizar",
-                    "POST" => "filial.criar",
-                    "PUT" => "filial.editar",
-                    "DELETE" => "filial.excluir",
+                    "GET" => "configuracoes.filial.visualizar",
+                    "POST" => "configuracoes.filial.criar",
+                    "PUT" => "configuracoes.filial.editar",
+                    "DELETE" => "configuracoes.filial.excluir",
                     _ => null
                 };
             }
@@ -34,10 +34,10 @@ namespace LudusGestao.Infrastructure.Security.Services
             {
                 return method switch
                 {
-                    "GET" => "usuario.visualizar",
-                    "POST" => "usuario.criar",
-                    "PUT" => "usuario.editar",
-                    "DELETE" => "usuario.excluir",
+                    "GET" => "configuracoes.usuario.visualizar",
+                    "POST" => "configuracoes.usuario.criar",
+                    "PUT" => "configuracoes.usuario.editar",
+                    "DELETE" => "configuracoes.usuario.excluir",
                     _ => null
                 };
             }
@@ -46,10 +46,10 @@ namespace LudusGestao.Infrastructure.Security.Services
             {
                 return method switch
                 {
-                    "GET" => "grupo.visualizar",
-                    "POST" => "grupo.criar",
-                    "PUT" => "grupo.editar",
-                    "DELETE" => "grupo.excluir",
+                    "GET" => "configuracoes.grupo.visualizar",
+                    "POST" => "configuracoes.grupo.criar",
+                    "PUT" => "configuracoes.grupo.editar",
+                    "DELETE" => "configuracoes.grupo.excluir",
                     _ => null
                 };
             }
@@ -58,10 +58,10 @@ namespace LudusGestao.Infrastructure.Security.Services
             {
                 return method switch
                 {
-                    "GET" => "cliente.visualizar",
-                    "POST" => "cliente.criar",
-                    "PUT" => "cliente.editar",
-                    "DELETE" => "cliente.excluir",
+                    "GET" => "reservas.cliente.visualizar",
+                    "POST" => "reservas.cliente.criar",
+                    "PUT" => "reservas.cliente.editar",
+                    "DELETE" => "reservas.cliente.excluir",
                     _ => null
                 };
             }
@@ -70,10 +70,10 @@ namespace LudusGestao.Infrastructure.Security.Services
             {
                 return method switch
                 {
-                    "GET" => "local.visualizar",
-                    "POST" => "local.criar",
-                    "PUT" => "local.editar",
-                    "DELETE" => "local.excluir",
+                    "GET" => "reservas.local.visualizar",
+                    "POST" => "reservas.local.criar",
+                    "PUT" => "reservas.local.editar",
+                    "DELETE" => "reservas.local.excluir",
                     _ => null
                 };
             }
@@ -82,10 +82,10 @@ namespace LudusGestao.Infrastructure.Security.Services
             {
                 return method switch
                 {
-                    "GET" => "reserva.visualizar",
-                    "POST" => "reserva.criar",
-                    "PUT" => "reserva.editar",
-                    "DELETE" => "reserva.excluir",
+                    "GET" => "reservas.reserva.visualizar",
+                    "POST" => "reservas.reserva.criar",
+                    "PUT" => "reservas.reserva.editar",
+                    "DELETE" => "reservas.reserva.excluir",
                     _ => null
                 };
             }
@@ -94,10 +94,10 @@ namespace LudusGestao.Infrastructure.Security.Services
             {
                 return method switch
                 {
-                    "GET" => "recebivel.visualizar",
-                    "POST" => "recebivel.criar",
-                    "PUT" => "recebivel.editar",
-                    "DELETE" => "recebivel.excluir",
+                    "GET" => "reservas.recebivel.visualizar",
+                    "POST" => "reservas.recebivel.criar",
+                    "PUT" => "reservas.recebivel.editar",
+                    "DELETE" => "reservas.recebivel.excluir",
                     _ => null
                 };
             }

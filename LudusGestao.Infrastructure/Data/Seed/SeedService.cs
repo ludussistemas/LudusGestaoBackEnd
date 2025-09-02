@@ -356,7 +356,7 @@ namespace LudusGestao.Infrastructure.Data.Seed
                 lista.Add(new Permissao
                 {
                     Id = Guid.NewGuid(),
-                    Nome = nome,
+                    Nome = $"{moduloPai}.{nome}",
                     Descricao = descricao,
                     ModuloPai = moduloPai,
                     Submodulo = submodulo,
