@@ -18,7 +18,7 @@ Authorization: Bearer {seu_token_jwt}
 ## 🔐 Autenticação
 
 ### POST /api/autenticacao/entrar
-**Descrição:** Realiza login do usuário e retorna token de acesso.
+**Descrição:** Realiza login do usuário e retorna tokens e dados do usuário.
 
 **Parâmetros de Entrada:**
 ```json
@@ -33,9 +33,20 @@ Authorization: Bearer {seu_token_jwt}
 {
   "success": true,
   "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "refreshToken": "refresh_token_aqui",
-    "expiresIn": 3600
+    "expiraEm": "2025-01-01T12:00:00Z",
+    "usuario": {
+      "id": "guid",
+      "nome": "string",
+      "email": "string",
+      "telefone": "string",
+      "cargo": "string",
+      "empresaId": "guid",
+      "grupoPermissaoId": "guid",
+      "situacao": 1,
+      "tenantId": 1
+    }
   },
   "message": "Login realizado com sucesso"
 }
@@ -64,9 +75,20 @@ Authorization: Bearer {seu_token_jwt}
 {
   "success": true,
   "data": {
-    "token": "novo_token_jwt",
+    "accessToken": "novo_access_token",
     "refreshToken": "novo_refresh_token",
-    "expiresIn": 3600
+    "expiraEm": "2025-01-01T13:00:00Z",
+    "usuario": {
+      "id": "guid",
+      "nome": "string",
+      "email": "string",
+      "telefone": "string",
+      "cargo": "string",
+      "empresaId": "guid",
+      "grupoPermissaoId": "guid",
+      "situacao": 1,
+      "tenantId": 1
+    }
   },
   "message": "Token renovado com sucesso"
 }
@@ -193,7 +215,7 @@ Authorization: Bearer {seu_token_jwt}
 **Parâmetros de Rota:**
 - `id` (Guid): ID do usuário
 
-**Resposta de Sucesso (200):**
+**Resposta de Sucesso (204):**
 ```json
 {
   "success": true,
@@ -595,6 +617,31 @@ Authorization: Bearer {seu_token_jwt}
 
 ---
 
+## 💰 Recebíveis — Resumo
+
+### GET /api/recebiveis/resumo
+**Descrição:** Retorna estatísticas agregadas de recebíveis.
+
+**Resposta de Sucesso (200):**
+```json
+{
+  "success": true,
+  "data": {
+    "totalRecebiveis": 120,
+    "valorTotal": 15000.0,
+    "valorPendente": 4500.0,
+    "valorPago": 9800.0,
+    "valorVencido": 700.0,
+    "pendentes": 20,
+    "pagos": 90,
+    "vencidos": 10
+  },
+  "message": "Resumo de recebíveis obtido com sucesso"
+}
+```
+
+---
+
 ## 🛠️ Utilitários
 
 ### GET /api/utilitarios/cep/{cep}
@@ -654,6 +701,44 @@ Authorization: Bearer {seu_token_jwt}
 
 ---
 
+## 🧭 Gerencialmento
+
+Base: `api/gerencialmento` (somente usuários com política `TenantMaster`).
+
+### POST /api/gerencialmento/novo-cliente
+**Descrição:** Cria a estrutura inicial de um novo cliente (empresa, filial principal e usuário admin).
+
+**Body:**
+```json
+{
+  "nome": "string",
+  "cnpj": "string",
+  "email": "string",
+  "rua": "string",
+  "numero": "string",
+  "cidade": "string",
+  "estado": "string",
+  "cep": "string"
+}
+```
+
+**Resposta (200 | 400):** ApiResponse com dados do novo cliente ou erro.
+
+### POST /api/gerencialmento/alterar-senha
+**Descrição:** Altera a senha de um usuário pelo e-mail.
+
+**Body:**
+```json
+{
+  "email": "string",
+  "novaSenha": "string"
+}
+```
+
+**Resposta (200 | 400):** ApiResponse com mensagem de sucesso ou erro.
+
+---
+
 ## 📊 Gerenciamento
 
 ### GET /api/gerenciamento
@@ -673,10 +758,63 @@ Authorization: Bearer {seu_token_jwt}
 
 ---
 
+## 👤 Acessos do Usuário
+
+### GET /api/usuarios/{id}/permissoes
+**Descrição:** Lista as permissões efetivas do usuário.
+
+**Parâmetros de Rota:**
+- `id` (Guid): ID do usuário
+
+**Resposta de Sucesso (200):**
+```json
+{
+  "success": true,
+  "data": ["Usuarios.Criar", "Usuarios.Editar", "Clientes.Visualizar"],
+  "message": "Permissões do usuário obtidas com sucesso"
+}
+```
+
+### GET /api/usuarios/{id}/filiais
+**Descrição:** Lista as filiais às quais o usuário tem acesso.
+
+**Parâmetros de Rota:**
+- `id` (Guid): ID do usuário
+
+**Resposta de Sucesso (200):**
+```json
+{
+  "success": true,
+  "data": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "5ca1ab1e-0000-4000-8000-000000000000"
+  ],
+  "message": "Filiais do usuário obtidas com sucesso"
+}
+```
+
+### GET /api/usuarios/{id}/modulos
+**Descrição:** Lista os módulos do sistema acessíveis ao usuário.
+
+**Parâmetros de Rota:**
+- `id` (Guid): ID do usuário
+
+**Resposta de Sucesso (200):**
+```json
+{
+  "success": true,
+  "data": ["Usuarios", "Clientes", "Locais"],
+  "message": "Módulos do usuário obtidos com sucesso"
+}
+```
+
+---
+
 ## 📝 Códigos de Status HTTP
 
 - **200 OK**: Requisição bem-sucedida
 - **201 Created**: Recurso criado com sucesso
+- **204 No Content**: Recurso removido com sucesso
 - **400 Bad Request**: Dados inválidos na requisição
 - **401 Unauthorized**: Não autorizado (token inválido ou ausente)
 - **403 Forbidden**: Acesso negado
