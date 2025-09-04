@@ -1,5 +1,5 @@
 using AutoMapper;
-using LudusGestao.Application.DTOs.geral.GrupoPermissao;
+using LudusGestao.Domain.DTOs.geral.GrupoPermissao;
 using LudusGestao.Core.Common;
 using LudusGestao.Core.Interfaces.Services;
 using LudusGestao.Core.Models;

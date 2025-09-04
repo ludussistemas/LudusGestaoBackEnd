@@ -1,7 +1,7 @@
 using AutoMapper;
-using LudusGestao.Application.Common.Interfaces;
-using LudusGestao.Application.DTOs.Auth;
-using LudusGestao.Application.DTOs.Usuario;
+using LudusGestao.Domain.Interfaces.Services.geral;
+using LudusGestao.Domain.DTOs.Auth;
+using LudusGestao.Domain.DTOs.Usuario;
 using LudusGestao.Core.Models;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
 using Microsoft.Extensions.Logging;

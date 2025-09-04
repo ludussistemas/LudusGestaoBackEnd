@@ -1,4 +1,4 @@
-using LudusGestao.Application.Common.Interfaces;
+using LudusGestao.Domain.Interfaces.Services.geral;
 using LudusGestao.Application.Services;
 using LudusGestao.Core.Interfaces.Repositories.Base;
 using LudusGestao.Domain.Interfaces.Repositories;
@@ -59,23 +59,23 @@ namespace LudusGestao.API.Extensions
             // Repositórios e serviços específicos
             services.AddScoped<IReservaRepository, ReservaRepository>();
             services.AddScoped<ReservaService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Application.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Application.DTOs.reserva.Reservas.UpdateReservaDTO>, ReservaService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Domain.DTOs.reserva.Reservas.ReservaDTO, LudusGestao.Domain.DTOs.reserva.Reservas.CreateReservaDTO, LudusGestao.Domain.DTOs.reserva.Reservas.UpdateReservaDTO>, ReservaService>();
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<ClienteService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO>, ClienteService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Domain.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Domain.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Domain.DTOs.reserva.Cliente.UpdateClienteDTO>, ClienteService>();
 
             services.AddScoped<IFilialRepository, FilialRepository>();
             services.AddScoped<CurrentFilialService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application.DTOs.Filial.UpdateFilialDTO>, FilialService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Domain.DTOs.Filial.FilialDTO, LudusGestao.Domain.DTOs.Filial.CreateFilialDTO, LudusGestao.Domain.DTOs.Filial.UpdateFilialDTO>, FilialService>();
 
             services.AddScoped<ILocalRepository, LocalRepository>();
             services.AddScoped<LocalService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.evento.Local.LocalDTO, LudusGestao.Application.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Application.DTOs.evento.Local.UpdateLocalDTO>, LocalService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Domain.DTOs.evento.Local.LocalDTO, LudusGestao.Domain.DTOs.evento.Local.CreateLocalDTO, LudusGestao.Domain.DTOs.evento.Local.UpdateLocalDTO>, LocalService>();
 
             services.AddScoped<IRecebivelRepository, RecebivelRepository>();
             services.AddScoped<RecebivelService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO>, RecebivelService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Domain.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Domain.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Domain.DTOs.evento.Recebivel.UpdateRecebivelDTO>, RecebivelService>();
 
             // Serviços de permissões refatorados
             services.AddScoped<IPermissaoAcessoService, LudusGestao.Application.Services.geral.permissao.PermissaoAcessoService>();
@@ -89,15 +89,15 @@ namespace LudusGestao.API.Extensions
             // Repositórios e serviços gerais
             services.AddScoped<IEmpresaRepository, EmpresaRepository>();
             services.AddScoped<EmpresaService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.Empresa.EmpresaDTO, LudusGestao.Application.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Application.DTOs.Empresa.UpdateEmpresaDTO>, EmpresaService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Domain.DTOs.Empresa.EmpresaDTO, LudusGestao.Domain.DTOs.Empresa.CreateEmpresaDTO, LudusGestao.Domain.DTOs.Empresa.UpdateEmpresaDTO>, EmpresaService>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<UsuarioService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO>, UsuarioService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Domain.DTOs.Usuario.UsuarioDTO, LudusGestao.Domain.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Domain.DTOs.Usuario.UpdateUsuarioDTO>, UsuarioService>();
 
             services.AddScoped<IGrupoPermissaoRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.GrupoPermissaoRepository>();
             services.AddScoped<LudusGestao.Application.Services.geral.permissao.GrupoPermissaoService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.geral.GrupoPermissao.GrupoPermissaoDTO, LudusGestao.Application.DTOs.geral.GrupoPermissao.CreateGrupoPermissaoDTO, LudusGestao.Application.DTOs.geral.GrupoPermissao.UpdateGrupoPermissaoDTO>, LudusGestao.Application.Services.geral.permissao.GrupoPermissaoService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Domain.DTOs.geral.GrupoPermissao.GrupoPermissaoDTO, LudusGestao.Domain.DTOs.geral.GrupoPermissao.CreateGrupoPermissaoDTO, LudusGestao.Domain.DTOs.geral.GrupoPermissao.UpdateGrupoPermissaoDTO>, LudusGestao.Application.Services.geral.permissao.GrupoPermissaoService>();
 
             // Novos repositórios de permissões
             services.AddScoped<IModuloRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.ModuloRepository>();
@@ -109,7 +109,7 @@ namespace LudusGestao.API.Extensions
 
             // Serviços de autenticação
             services.AddScoped<LudusGestao.Domain.Interfaces.Services.autenticacao.IAuthService, LudusGestao.Infrastructure.Security.AuthService>();
-            services.AddScoped<LudusGestao.Application.Common.Interfaces.IAuthService, LudusGestao.Application.Services.AuthService>();
+            services.AddScoped<LudusGestao.Domain.Interfaces.Services.geral.IAuthService, LudusGestao.Application.Services.AuthService>();
 
             // Serviços de gerenciamento
             services.AddScoped<IGerencialmentoService, GerencialmentoService>();

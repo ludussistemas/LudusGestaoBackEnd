@@ -1,4 +1,4 @@
-using LudusGestao.Application.DTOs.Empresa;
+using LudusGestao.Domain.DTOs.Empresa;
 using LudusGestao.Core.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

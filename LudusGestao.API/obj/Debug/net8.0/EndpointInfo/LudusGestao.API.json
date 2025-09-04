@@ -129,6 +129,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Filial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
         "responses": {
@@ -301,6 +309,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Filial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
         "responses": {
@@ -472,6 +488,14 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Filial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -657,105 +681,10 @@
         }
       }
     },
-    "/api/grupos-permissoes/{id}/usuarios": {
+    "/api/GrupoPermissao": {
       "get": {
         "tags": [
-          "GruposPermissoes"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "GruposPermissoes"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AdicionarUsuarioAoGrupoDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AdicionarUsuarioAoGrupoDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AdicionarUsuarioAoGrupoDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/grupos-permissoes/{id}/usuarios/{usuarioId}": {
-      "delete": {
-        "tags": [
-          "GruposPermissoes"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "usuarioId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/grupos-permissoes": {
-      "get": {
-        "tags": [
-          "GruposPermissoes"
+          "GrupoPermissao"
         ],
         "parameters": [
           {
@@ -802,6 +731,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Filial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
         "responses": {
@@ -812,7 +749,7 @@
       },
       "post": {
         "tags": [
-          "GruposPermissoes"
+          "GrupoPermissao"
         ],
         "requestBody": {
           "content": {
@@ -840,10 +777,10 @@
         }
       }
     },
-    "/api/grupos-permissoes/{id}": {
+    "/api/GrupoPermissao/{id}": {
       "get": {
         "tags": [
-          "GruposPermissoes"
+          "GrupoPermissao"
         ],
         "parameters": [
           {
@@ -864,7 +801,7 @@
       },
       "put": {
         "tags": [
-          "GruposPermissoes"
+          "GrupoPermissao"
         ],
         "parameters": [
           {
@@ -904,7 +841,7 @@
       },
       "delete": {
         "tags": [
-          "GruposPermissoes"
+          "GrupoPermissao"
         ],
         "parameters": [
           {
@@ -985,6 +922,14 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Filial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1108,109 +1053,6 @@
         }
       }
     },
-    "/api/permissoes": {
-      "get": {
-        "tags": [
-          "Permissoes"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/permissoes/{id}": {
-      "get": {
-        "tags": [
-          "Permissoes"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/permissoes/modulos-pai": {
-      "get": {
-        "tags": [
-          "Permissoes"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/permissoes/submodulos": {
-      "get": {
-        "tags": [
-          "Permissoes"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/permissoes/modulo-pai/{moduloPai}": {
-      "get": {
-        "tags": [
-          "Permissoes"
-        ],
-        "parameters": [
-          {
-            "name": "moduloPai",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/permissoes/submodulo/{submodulo}": {
-      "get": {
-        "tags": [
-          "Permissoes"
-        ],
-        "parameters": [
-          {
-            "name": "submodulo",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/recebiveis/resumo": {
       "get": {
         "tags": [
@@ -1272,6 +1114,14 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Filial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1445,6 +1295,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Filial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
         "responses": {
@@ -1567,16 +1425,23 @@
         }
       }
     },
-    "/api/usuarios/{id}/permissoes": {
+    "/api/UsuarioPermissao/menu": {
       "get": {
         "tags": [
           "UsuarioPermissao"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "usuarioId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "filialId",
+            "in": "query",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -1585,53 +1450,146 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuDto"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/usuarios/{id}/filiais": {
+    "/api/UsuarioPermissao/tem-permissao-modulo": {
       "get": {
         "tags": [
           "UsuarioPermissao"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "usuarioId",
+            "in": "query",
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "filialId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "moduloNome",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "acaoNome",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/usuarios/{id}/modulos": {
+    "/api/UsuarioPermissao/tem-permissao-submodulo": {
       "get": {
         "tags": [
           "UsuarioPermissao"
         ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "usuarioId",
+            "in": "query",
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "filialId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "submoduloNome",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "acaoNome",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         }
       }
@@ -1685,6 +1643,14 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Filial",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1845,16 +1811,6 @@
   },
   "components": {
     "schemas": {
-      "AdicionarUsuarioAoGrupoDTO": {
-        "type": "object",
-        "properties": {
-          "usuarioId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
       "AlterarSenhaDTO": {
         "required": [
           "email",
@@ -2268,6 +2224,40 @@
         },
         "additionalProperties": false
       },
+      "MenuDto": {
+        "type": "object",
+        "properties": {
+          "modulos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModuloMenuDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModuloMenuDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "submodulos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubmoduloMenuDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RefreshTokenDTO": {
         "type": "object",
         "properties": {
@@ -2325,6 +2315,20 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "SubmoduloMenuDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "UpdateClienteDTO": {
         "type": "object",

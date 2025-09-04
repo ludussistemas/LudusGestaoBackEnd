@@ -1,5 +1,5 @@
 using AutoMapper;
-using LudusGestao.Application.DTOs.reserva.Reservas;
+using LudusGestao.Domain.DTOs.reserva.Reservas;
 using LudusGestao.Core.Interfaces.Infrastructure;
 using LudusGestao.Core.Interfaces.Repositories.Base;
 using LudusGestao.Core.Interfaces.Services;

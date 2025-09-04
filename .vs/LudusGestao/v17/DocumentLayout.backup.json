@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.application\\services\\evento\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|solutionrelative:ludusgestao.application\\services\\evento\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.application\\services\\autententicacao\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|solutionrelative:ludusgestao.application\\services\\autententicacao\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.application\\common\\models\\pagedqueryparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|solutionrelative:ludusgestao.application\\common\\models\\pagedqueryparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.application\\common\\models\\infinitescrollqueryparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|solutionrelative:ludusgestao.application\\common\\models\\infinitescrollqueryparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.application\\common\\models\\apiinfinitescrollresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|solutionrelative:ludusgestao.application\\common\\models\\apiinfinitescrollresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.application\\common\\interfaces\\igerencialmentoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|solutionrelative:ludusgestao.application\\common\\interfaces\\igerencialmentoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.application\\common\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|solutionrelative:ludusgestao.application\\common\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.application\\common\\interfaces\\iauthappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E537B6F-A7A1-4A8A-BEA3-56C6AC89C5E8}|LudusGestao.Application\\LudusGestao.Application.csproj|solutionrelative:ludusgestao.application\\common\\interfaces\\iauthappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{77E167CF-B350-4F4D-99D9-FD4342DAD2F3}|LudusGestao.Core\\LudusGestao.Core.csproj|c:\\users\\guilherme.peritto\\documents\\ludusgestaobackend\\ludusgestao.core\\controllers\\basecrudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77E167CF-B350-4F4D-99D9-FD4342DAD2F3}|LudusGestao.Core\\LudusGestao.Core.csproj|solutionrelative:ludusgestao.core\\controllers\\basecrudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,12 +55,116 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ClienteService.cs",
+              "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Services\\evento\\ClienteService.cs",
+              "RelativeDocumentMoniker": "LudusGestao.Application\\Services\\evento\\ClienteService.cs",
+              "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Services\\evento\\ClienteService.cs",
+              "RelativeToolTip": "LudusGestao.Application\\Services\\evento\\ClienteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:10:55.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Services\\autententicacao\\AuthService.cs",
+              "RelativeDocumentMoniker": "LudusGestao.Application\\Services\\autententicacao\\AuthService.cs",
+              "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Services\\autententicacao\\AuthService.cs",
+              "RelativeToolTip": "LudusGestao.Application\\Services\\autententicacao\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:10:50.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PagedQueryParams.cs",
+              "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Models\\PagedQueryParams.cs",
+              "RelativeDocumentMoniker": "LudusGestao.Application\\Common\\Models\\PagedQueryParams.cs",
+              "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Models\\PagedQueryParams.cs",
+              "RelativeToolTip": "LudusGestao.Application\\Common\\Models\\PagedQueryParams.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:10:44.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InfiniteScrollQueryParams.cs",
+              "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Models\\InfiniteScrollQueryParams.cs",
+              "RelativeDocumentMoniker": "LudusGestao.Application\\Common\\Models\\InfiniteScrollQueryParams.cs",
+              "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Models\\InfiniteScrollQueryParams.cs",
+              "RelativeToolTip": "LudusGestao.Application\\Common\\Models\\InfiniteScrollQueryParams.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:10:42.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApiInfiniteScrollResponse.cs",
+              "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Models\\ApiInfiniteScrollResponse.cs",
+              "RelativeDocumentMoniker": "LudusGestao.Application\\Common\\Models\\ApiInfiniteScrollResponse.cs",
+              "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Models\\ApiInfiniteScrollResponse.cs",
+              "RelativeToolTip": "LudusGestao.Application\\Common\\Models\\ApiInfiniteScrollResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:10:40.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IGerencialmentoService.cs",
+              "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Interfaces\\IGerencialmentoService.cs",
+              "RelativeDocumentMoniker": "LudusGestao.Application\\Common\\Interfaces\\IGerencialmentoService.cs",
+              "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Interfaces\\IGerencialmentoService.cs",
+              "RelativeToolTip": "LudusGestao.Application\\Common\\Interfaces\\IGerencialmentoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:10:37.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "LudusGestao.Application\\Common\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "LudusGestao.Application\\Common\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:10:35.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IAuthAppService.cs",
+              "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Interfaces\\IAuthAppService.cs",
+              "RelativeDocumentMoniker": "LudusGestao.Application\\Common\\Interfaces\\IAuthAppService.cs",
+              "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Application\\Common\\Interfaces\\IAuthAppService.cs",
+              "RelativeToolTip": "LudusGestao.Application\\Common\\Interfaces\\IAuthAppService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T17:10:10.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "BaseCrudController.cs",
               "DocumentMoniker": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Core\\Controllers\\BaseCrudController.cs",
               "RelativeDocumentMoniker": "LudusGestao.Core\\Controllers\\BaseCrudController.cs",
               "ToolTip": "C:\\Users\\guilherme.peritto\\Documents\\LudusGestaoBackEnd\\LudusGestao.Core\\Controllers\\BaseCrudController.cs",
               "RelativeToolTip": "LudusGestao.Core\\Controllers\\BaseCrudController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-02T16:14:02.059Z",
               "EditorCaption": ""

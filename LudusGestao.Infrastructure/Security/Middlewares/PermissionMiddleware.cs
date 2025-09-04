@@ -84,9 +84,21 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
                 return;
             }
 
+            // Extrair módulo, submodulo e ação da permissão
+            string acao = permissaoNecessaria;
+            string modulo = "";
+            string submodulo = "";
+            var parts = permissaoNecessaria?.Split('.') ?? Array.Empty<string>();
+            if (parts.Length == 3)
+            {
+                modulo = parts[0];
+                submodulo = parts[1];
+                acao = parts[2];
+            }
+
             // Verificar se o usuário tem a permissão necessária
             var temPermissao = filialId.HasValue
-                ? await validator.HasPermissionAsync(usuarioId.Value, filialId.Value, permissaoNecessaria)
+                ? await validator.HasPermissionAsync(usuarioId.Value, modulo, submodulo, acao, filialId)
                 : true;
             if (!temPermissao)
             {
@@ -97,17 +109,6 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
                         .Where(f => f.Id == filialId.Value)
                         .Select(f => f.Nome)
                         .FirstOrDefaultAsync();
-                }
-
-                string acao = permissaoNecessaria;
-                string modulo = "";
-                string submodulo = "";
-                var parts = permissaoNecessaria?.Split('.') ?? Array.Empty<string>();
-                if (parts.Length == 3)
-                {
-                    modulo = parts[0];
-                    submodulo = parts[1];
-                    acao = parts[2];
                 }
 
                 var mensagem = filialId.HasValue
@@ -123,7 +124,7 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             if (!string.IsNullOrEmpty(moduloPai))
             {
                 var temAcessoModulo = filialId.HasValue
-                    ? await validator.HasModuleAccessAsync(usuarioId.Value, filialId.Value, moduloPai)
+                    ? await validator.HasModuleAccessAsync(usuarioId.Value, moduloPai, filialId)
                     : true;
                 if (!temAcessoModulo)
                 {

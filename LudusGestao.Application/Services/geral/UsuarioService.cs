@@ -1,5 +1,5 @@
 using AutoMapper;
-using LudusGestao.Application.DTOs.Usuario;
+using LudusGestao.Domain.DTOs.Usuario;
 using LudusGestao.Core.Interfaces.Infrastructure;
 using LudusGestao.Core.Interfaces.Services;
 using LudusGestao.Core.Services;

@@ -1,5 +1,5 @@
-using LudusGestao.Application.DTOs.evento.Local;
-using LudusGestao.Application.DTOs.infra.Utilitarios;
+using LudusGestao.Domain.DTOs.evento.Local;
+using LudusGestao.Domain.DTOs.infra.Utilitarios;
 using LudusGestao.Core.Controllers;
 using LudusGestao.Core.Models;
 using LudusGestao.Domain.Enums.eventos;

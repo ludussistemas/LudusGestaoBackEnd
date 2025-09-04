@@ -1,4 +1,4 @@
-using LudusGestao.Application.DTOs.geral.GrupoPermissao;
+using LudusGestao.Domain.DTOs.geral.GrupoPermissao;
 using LudusGestao.Application.Services.geral.permissao;
 using LudusGestao.Core.Controllers;
 using LudusGestao.Core.Interfaces.Services;

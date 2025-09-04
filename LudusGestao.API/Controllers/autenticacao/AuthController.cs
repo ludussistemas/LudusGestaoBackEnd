@@ -1,5 +1,5 @@
-using LudusGestao.Application.Common.Interfaces;
-using LudusGestao.Application.DTOs.Auth;
+using LudusGestao.Domain.Interfaces.Services.geral;
+using LudusGestao.Domain.DTOs.Auth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LudusGestao.API.Controllers.autenticacao;

@@ -1,4 +1,4 @@
-using LudusGestao.Application.DTOs.infra.Utilitarios;
+using LudusGestao.Domain.DTOs.infra.Utilitarios;
 using LudusGestao.Core.Models;
 using LudusGestao.Domain.Interfaces.Services.infra;
 using Microsoft.AspNetCore.Mvc;

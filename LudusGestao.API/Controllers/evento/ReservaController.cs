@@ -1,4 +1,4 @@
-using LudusGestao.Application.DTOs.reserva.Reservas;
+using LudusGestao.Domain.DTOs.reserva.Reservas;
 using LudusGestao.Core.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

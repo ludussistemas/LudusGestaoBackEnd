@@ -1,5 +1,5 @@
-using LudusGestao.Application.DTOs.evento.Recebivel;
-using LudusGestao.Application.DTOs.infra.Utilitarios;
+using LudusGestao.Domain.DTOs.evento.Recebivel;
+using LudusGestao.Domain.DTOs.infra.Utilitarios;
 using LudusGestao.Core.Controllers;
 using LudusGestao.Core.Models;
 using LudusGestao.Domain.Enums.eventos;

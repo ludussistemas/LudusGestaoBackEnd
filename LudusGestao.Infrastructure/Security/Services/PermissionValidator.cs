@@ -12,27 +12,28 @@ namespace LudusGestao.Infrastructure.Security.Services
             _permissaoService = permissaoService;
         }
 
-        public async Task<bool> HasPermissionAsync(Guid userId, Guid filialId, string permission)
+        public async Task<bool> HasPermissionAsync(Guid userId, string modulo, string submodulo, string acao, Guid? filialId = null)
         {
-            // Extrair módulo e ação da permissão (ex: "Configuracoes.Empresa.Visualizar")
-            var parts = permission.Split('.');
-            if (parts.Length != 3)
+            // Se não há filial, retornar false (não é possível verificar permissão sem filial)
+            if (!filialId.HasValue)
             {
                 return false;
             }
 
-            var moduloNome = parts[0];
-            var submoduloNome = parts[1];
-            var acaoNome = parts[2];
-
-            // Verificar permissão no submodulo
-            return await _permissaoService.TemPermissaoSubmodulo(userId, filialId, submoduloNome, acaoNome);
+            // Verificar permissão no submodulo com filial
+            return await _permissaoService.TemPermissaoSubmodulo(userId, filialId.Value, submodulo, acao);
         }
 
-        public async Task<bool> HasModuleAccessAsync(Guid userId, Guid filialId, string module)
+        public async Task<bool> HasModuleAccessAsync(Guid userId, string modulo, Guid? filialId = null)
         {
-            // Verificar se o usuário tem acesso ao módulo (qualquer ação)
-            return await _permissaoService.TemPermissaoModulo(userId, filialId, module, "Visualizar");
+            // Se não há filial, retornar false (não é possível verificar acesso sem filial)
+            if (!filialId.HasValue)
+            {
+                return false;
+            }
+
+            // Verificar se o usuário tem acesso ao módulo (qualquer ação) com filial
+            return await _permissaoService.TemPermissaoModulo(userId, filialId.Value, modulo, "Visualizar");
         }
     }
 }

@@ -34,10 +34,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<LudusGestao.Core.Interfaces.Infrastructure.IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
 
 // AutoMapper
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(typeof(LudusGestao.Application.Mappings.geral.GeralMappingProfile), typeof(LudusGestao.Application.Mappings.evento.EventoMappingProfile));
 
 // FluentValidation
-builder.Services.AddValidatorsFromAssemblyContaining<MappingProfile>();
+builder.Services.AddValidatorsFromAssemblyContaining<LudusGestao.Domain.Validators.geral.Usuario.CreateUsuarioValidator>();
 
 builder.Services.AddAppCoreServices();
 

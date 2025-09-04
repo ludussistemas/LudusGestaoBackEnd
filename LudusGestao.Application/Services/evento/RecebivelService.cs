@@ -1,5 +1,5 @@
 using AutoMapper;
-using LudusGestao.Application.DTOs.evento.Recebivel;
+using LudusGestao.Domain.DTOs.evento.Recebivel;
 using LudusGestao.Core.Interfaces.Infrastructure;
 using LudusGestao.Core.Interfaces.Repositories.Base;
 using LudusGestao.Core.Interfaces.Services;

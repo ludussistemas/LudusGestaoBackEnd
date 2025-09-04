@@ -1,9 +1,9 @@
 using AutoMapper;
-using LudusGestao.Application.Common.Interfaces;
-using LudusGestao.Application.DTOs.Empresa;
-using LudusGestao.Application.DTOs.Filial;
-using LudusGestao.Application.DTOs.Gerencialmento;
-using LudusGestao.Application.DTOs.Usuario;
+using LudusGestao.Domain.Interfaces.Services.geral;
+using LudusGestao.Domain.DTOs.Empresa;
+using LudusGestao.Domain.DTOs.Filial;
+using LudusGestao.Domain.DTOs.Gerencialmento;
+using LudusGestao.Domain.DTOs.Usuario;
 using LudusGestao.Core.Constants;
 using LudusGestao.Core.Models;
 using LudusGestao.Domain.Entities.geral;
