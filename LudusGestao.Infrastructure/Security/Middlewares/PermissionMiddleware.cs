@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
+using LudusGestao.Infrastructure.Data.Context;
 
 namespace LudusGestao.Infrastructure.Security.Middlewares
 {
@@ -33,6 +35,7 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             var errorBuilder = serviceProvider.GetRequiredService<IErrorResponseBuilder>();
             var permissaoAcessoService = serviceProvider.GetRequiredService<LudusGestao.Domain.Interfaces.Services.geral.permissao.IPermissaoAcessoService>();
             var filialService = serviceProvider.GetRequiredService<LudusGestao.Domain.Interfaces.Services.infra.IFilialService>();
+            var db = serviceProvider.GetRequiredService<ApplicationDbContext>();
 
             // Verificar se o usuário está autenticado
             if (!context.User.Identity?.IsAuthenticated ?? true)
@@ -54,7 +57,7 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             var isGet = string.Equals(context.Request.Method, "GET", StringComparison.OrdinalIgnoreCase);
             if (!filialId.HasValue && isGet)
             {
-                await errorBuilder.BuildErrorResponseAsync(context, 400, "Informe a filial via header 'Filial' ou query 'filial'/'filialId'.");
+                await errorBuilder.BuildErrorResponseAsync(context, 400, "É necessário informar a filial para realizar esta operação. Você pode enviar a filial através do cabeçalho 'Filial' ou como parâmetro de consulta 'filial'/'filialId' na URL.");
                 return;
             }
 
@@ -87,7 +90,31 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
                 : true;
             if (!temPermissao)
             {
-                await errorBuilder.BuildErrorResponseAsync(context, 403, $"Acesso negado. Permissão necessária: {permissaoNecessaria}");
+                string? filialNome = null;
+                if (filialId.HasValue)
+                {
+                    filialNome = await db.Filiais
+                        .Where(f => f.Id == filialId.Value)
+                        .Select(f => f.Nome)
+                        .FirstOrDefaultAsync();
+                }
+
+                string acao = permissaoNecessaria;
+                string modulo = "";
+                string submodulo = "";
+                var parts = permissaoNecessaria?.Split('.') ?? Array.Empty<string>();
+                if (parts.Length == 3)
+                {
+                    modulo = parts[0];
+                    submodulo = parts[1];
+                    acao = parts[2];
+                }
+
+                var mensagem = filialId.HasValue
+                    ? $"Você não tem permissão para {acao.ToLower()} {submodulo} no módulo {modulo} na filial {filialNome ?? filialId.Value.ToString()}. Caso precise deste acesso, contate o administrador."
+                    : $"Você não tem permissão para {acao.ToLower()} {submodulo} no módulo {modulo}. Caso precise deste acesso, contate o administrador.";
+
+                await errorBuilder.BuildErrorResponseAsync(context, 403, mensagem);
                 return;
             }
 
@@ -100,7 +127,20 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
                     : true;
                 if (!temAcessoModulo)
                 {
-                    await errorBuilder.BuildErrorResponseAsync(context, 403, $"Acesso negado ao módulo: {moduloPai}");
+                    string? filialNome = null;
+                    if (filialId.HasValue)
+                    {
+                        filialNome = await db.Filiais
+                            .Where(f => f.Id == filialId.Value)
+                            .Select(f => f.Nome)
+                            .FirstOrDefaultAsync();
+                    }
+
+                    var mensagemModulo = filialId.HasValue
+                        ? $"Você não tem permissão para acessar o módulo {moduloPai} na filial {filialNome ?? filialId.Value.ToString()}. Caso precise deste acesso, contate o administrador."
+                        : $"Você não tem permissão para acessar o módulo {moduloPai}. Caso precise deste acesso, contate o administrador.";
+
+                    await errorBuilder.BuildErrorResponseAsync(context, 403, mensagemModulo);
                     return;
                 }
             }
