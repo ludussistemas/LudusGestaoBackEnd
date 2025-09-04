@@ -4,12 +4,12 @@ using LudusGestao.Application.DTOs.evento.Local;
 using LudusGestao.Application.DTOs.evento.Recebivel;
 using LudusGestao.Application.DTOs.Filial;
 using LudusGestao.Application.DTOs.geral.GrupoPermissao;
-using LudusGestao.Application.DTOs.geral.Permissao;
 using LudusGestao.Application.DTOs.reserva.Cliente;
 using LudusGestao.Application.DTOs.reserva.Reservas;
 using LudusGestao.Application.DTOs.Usuario;
 using LudusGestao.Domain.Entities.eventos;
 using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Entities.geral.permissao;
 
 namespace LudusGestao.Application.Mappings
 {
@@ -79,9 +79,6 @@ namespace LudusGestao.Application.Mappings
             CreateMap<CreateGrupoPermissaoDTO, GrupoPermissao>();
             CreateMap<UpdateGrupoPermissaoDTO, GrupoPermissao>();
             CreateMap<GrupoPermissao, GrupoPermissaoDTO>();
-
-            // Permissao
-            CreateMap<Permissao, PermissaoDTO>();
         }
     }
 }

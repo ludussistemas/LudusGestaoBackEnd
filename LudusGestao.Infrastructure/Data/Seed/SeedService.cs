@@ -1,7 +1,4 @@
-using LudusGestao.Domain.Entities.eventos;
-using LudusGestao.Domain.Entities.geral;
-using LudusGestao.Domain.Enums.eventos;
-using LudusGestao.Domain.Enums.geral;
+using LudusGestao.Domain.Entities.geral.permissao;
 using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Domain.Interfaces.Services.infra;
 using LudusGestao.Infrastructure.Data.Context;
@@ -33,14 +30,16 @@ namespace LudusGestao.Infrastructure.Data.Seed
                     return false; // Dados já existem
                 }
 
-                // 1. Seed de permissões
-                await SeedPermissoesAsync();
+                var tenantId = 1;
+
+                // 1. Seed de módulos, submódulos e ações (novo esquema)
+                await SeedNovasPermissoesAsync();
 
                 // 2. Seed de grupos de permissões
-                await SeedGruposAsync();
+                var grupos = await SeedGruposAsync(tenantId);
 
                 // 3. Seed de dados básicos (empresa, filial, usuário admin)
-                await SeedDadosBasicosAsync();
+                await SeedDadosBasicosAsync(grupos, tenantId);
 
                 return true;
             }
@@ -52,325 +51,196 @@ namespace LudusGestao.Infrastructure.Data.Seed
             }
         }
 
-        private async Task SeedPermissoesAsync()
+        private async Task SeedNovasPermissoesAsync()
         {
-            if (await _context.Permissoes.AnyAsync())
-                return;
-
-            var permissoes = new List<Permissao>();
-
-            // MÓDULO: CONFIGURAÇÕES
-            permissoes.AddRange(CriarPermissoesModulo("configuracoes", new[]
+            // Seed de módulos
+            if (!await _context.Modulos.AnyAsync())
             {
-                ("acesso", "Acesso ao módulo de configurações"),
-                ("empresa.visualizar", "Visualizar dados da empresa"),
-                ("empresa.editar", "Editar dados da empresa"),
-                ("empresa.excluir", "Excluir empresa"),
-                ("filial.visualizar", "Visualizar filiais"),
-                ("filial.criar", "Criar nova filial"),
-                ("filial.editar", "Editar filial"),
-                ("filial.excluir", "Excluir filial"),
-                ("usuario.visualizar", "Visualizar usuários"),
-                ("usuario.criar", "Criar usuário"),
-                ("usuario.editar", "Editar usuário"),
-                ("usuario.excluir", "Excluir usuário"),
-                ("usuario.permissoes", "Gerenciar permissões de usuário"),
-                ("grupo.visualizar", "Visualizar grupos de permissões"),
-                ("grupo.criar", "Criar grupo de permissões"),
-                ("grupo.editar", "Editar grupo de permissões"),
-                ("grupo.excluir", "Excluir grupo de permissões"),
-                ("grupo.permissoes", "Gerenciar permissões do grupo"),
-                ("grupo.usuarios", "Gerenciar usuários do grupo")
-            }));
+                var modulos = PermissaoSeedData.GetModulos();
+                await _context.Modulos.AddRangeAsync(modulos);
+                await _context.SaveChangesAsync();
+            }
 
-            // MÓDULO: RESERVAS
-            permissoes.AddRange(CriarPermissoesModulo("reservas", new[]
+            // Seed de submódulos
+            if (!await _context.Submodulos.AnyAsync())
             {
-                ("acesso", "Acesso ao módulo de reservas"),
-                ("cliente.visualizar", "Visualizar clientes"),
-                ("cliente.criar", "Criar cliente"),
-                ("cliente.editar", "Editar cliente"),
-                ("cliente.excluir", "Excluir cliente"),
-                ("local.visualizar", "Visualizar locais"),
-                ("local.criar", "Criar local"),
-                ("local.editar", "Editar local"),
-                ("local.excluir", "Excluir local"),
-                ("reserva.visualizar", "Visualizar reservas"),
-                ("reserva.criar", "Criar reserva"),
-                ("reserva.editar", "Editar reserva"),
-                ("reserva.cancelar", "Cancelar reserva"),
-                ("reserva.confirmar", "Confirmar reserva"),
-                ("recebivel.visualizar", "Visualizar recebíveis"),
-                ("recebivel.criar", "Criar recebível"),
-                ("recebivel.editar", "Editar recebível"),
-                ("recebivel.excluir", "Excluir recebível"),
-                ("recebivel.marcar_pago", "Marcar como pago"),
-                ("relatorio.visualizar", "Visualizar relatórios"),
-                ("relatorio.exportar", "Exportar relatórios")
-            }));
+                var moduloEventos = await _context.Modulos.FirstOrDefaultAsync(m => m.Nome == "Eventos");
+                var moduloConfiguracoes = await _context.Modulos.FirstOrDefaultAsync(m => m.Nome == "Configuracoes");
+                
+                if (moduloEventos != null && moduloConfiguracoes != null)
+                {
+                    var submodulos = PermissaoSeedData.GetSubmodulos(moduloEventos.Id, moduloConfiguracoes.Id);
+                    await _context.Submodulos.AddRangeAsync(submodulos);
+                    await _context.SaveChangesAsync();
+                }
+            }
 
-            await _context.Permissoes.AddRangeAsync(permissoes);
-            await _context.SaveChangesAsync();
+            // Seed de ações
+            if (!await _context.Acoes.AnyAsync())
+            {
+                var acoes = PermissaoSeedData.GetAcoes();
+                await _context.Acoes.AddRangeAsync(acoes);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        private async Task SeedGruposAsync()
+        private async Task<List<GrupoPermissao>> SeedGruposAsync(int tenantId)
         {
             if (await _context.GruposPermissoes.AnyAsync())
-                return;
-
-            var tenantId = 1;
-            var grupos = new List<GrupoPermissao>();
-
-            // 1. ADMINISTRADOR
-            var admin = new GrupoPermissao
             {
-                Id = Guid.NewGuid(),
-                Nome = "Administrador",
-                Descricao = "Acesso total ao sistema - pode gerenciar tudo",
-                Situacao = SituacaoBase.Ativo,
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-            grupos.Add(admin);
+                return await _context.GruposPermissoes.ToListAsync();
+            }
 
-            // 2. GERENTE
-            var gerente = new GrupoPermissao
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Gerente",
-                Descricao = "Gerencia reservas, clientes e locais - sem acesso a configurações",
-                Situacao = SituacaoBase.Ativo,
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-            grupos.Add(gerente);
-
-            // 3. OPERADOR
-            var operador = new GrupoPermissao
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Operador",
-                Descricao = "Operações básicas de reservas e atendimento",
-                Situacao = SituacaoBase.Ativo,
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-            grupos.Add(operador);
-
-            // 4. ATENDENTE
-            var atendente = new GrupoPermissao
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Atendente",
-                Descricao = "Atendimento básico - visualização e criação simples",
-                Situacao = SituacaoBase.Ativo,
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-            grupos.Add(atendente);
-
+            var grupos = GrupoPermissaoSeedData.GetGrupos(tenantId);
             await _context.GruposPermissoes.AddRangeAsync(grupos);
             await _context.SaveChangesAsync();
+
+            return grupos;
         }
 
-        private async Task SeedDadosBasicosAsync()
+        private async Task SeedDadosBasicosAsync(List<GrupoPermissao> grupos, int tenantId)
         {
-            var tenantId = 1;
-
             // 1. Criar Empresa
-            var empresa = new Empresa
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Ludus Sistemas",
-                Cnpj = "12345678000199",
-                Email = "contato@ludus.com.br",
-                Endereco = "Rua Exemplo, 100",
-                Cidade = "CidadeX",
-                Estado = "SP",
-                Cep = "00000-000",
-                Telefone = "(11) 99999-9999",
-                Situacao = SituacaoBase.Ativo,
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-
+            var empresa = EmpresaSeedData.GetEmpresa(tenantId);
             await _context.Empresas.AddAsync(empresa);
+            await _context.SaveChangesAsync();
 
             // 2. Criar Filial
-            var filial = new Filial
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Filial Central",
-                Codigo = "F001",
-                Endereco = "Rua Central, 200",
-                Cidade = "CidadeX",
-                Estado = "SP",
-                Cep = "00000-001",
-                Telefone = "(11) 88888-8888",
-                Email = "filial@ludus.com.br",
-                Cnpj = "12345678000199",
-                Responsavel = "João Gerente",
-                DataAbertura = DateTime.UtcNow,
-                Situacao = SituacaoBase.Ativo,
-                EmpresaId = empresa.Id,
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-
+            var filial = FilialSeedData.GetFilial(empresa.Id, tenantId);
             await _context.Filiais.AddAsync(filial);
+            await _context.SaveChangesAsync();
 
             // 3. Obter grupo administrador
-            var grupoAdmin = await _context.GruposPermissoes
-                .FirstOrDefaultAsync(g => g.Nome == "Administrador");
+            var grupoAdmin = grupos.FirstOrDefault(g => g.Nome == "Administrador");
 
-            // 4. Vincular grupo Administrador à filial com TODAS as permissões
-            if (grupoAdmin != null)
-            {
-                var todasPermissoes = await _context.Permissoes.ToListAsync();
-
-                var grupoPermissaoFilial = new GrupoPermissaoFilial
-                {
-                    Id = Guid.NewGuid(),
-                    GrupoPermissaoId = grupoAdmin.Id,
-                    FilialId = filial.Id,
-                    Permissoes = todasPermissoes.Select(p => p.Id).ToList(),
-                    TenantId = tenantId,
-                    DataCriacao = DateTime.UtcNow
-                };
-
-                await _context.GruposPermissoesFiliais.AddAsync(grupoPermissaoFilial);
-            }
-
-            // 5. Criar Usuário Administrador
-            var usuarioAdmin = new Usuario
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Admin Ludus",
-                Email = "admin@ludus.com.br",
-                Telefone = "(11) 77777-7777",
-                Cargo = "Administrador",
-                EmpresaId = empresa.Id,
-                GrupoPermissaoId = grupoAdmin?.Id,
-                Situacao = SituacaoBase.Ativo,
-                UltimoAcesso = DateTime.UtcNow,
-                Senha = BCrypt.Net.BCrypt.HashPassword("Ludus@2024"),
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-
+            // 4. Criar Usuário Administrador
+            var usuarioAdmin = UsuarioSeedData.GetUsuarioAdmin(empresa.Id, grupoAdmin?.Id, tenantId);
             await _context.Usuarios.AddAsync(usuarioAdmin);
+            await _context.SaveChangesAsync();
 
             // 5. Criar Cliente Exemplo
-            var cliente = new Cliente
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Cliente Exemplo",
-                Documento = "12345678901",
-                Email = "cliente@exemplo.com",
-                Telefone = "(11) 66666-6666",
-                Endereco = "Rua Cliente, 300",
-                Observacoes = "Cliente VIP",
-                Situacao = SituacaoCliente.Ativo,
-                DataCriacao = DateTime.UtcNow,
-                TenantId = tenantId,
-            };
-
+            var cliente = ClienteSeedData.GetClienteExemplo(filial.Id, tenantId);
             await _context.Clientes.AddAsync(cliente);
+            await _context.SaveChangesAsync();
 
             // 6. Criar Local Exemplo
-            var local = new Local
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Quadra Exemplo",
-                Tipo = "Futebol",
-                Intervalo = 60,
-                ValorHora = 100.00m,
-                Capacidade = 20,
-                Descricao = "Quadra de futebol society",
-                Comodidades = new List<string> { "Vestiários", "Estacionamento" },
-                Situacao = SituacaoLocal.Ativo,
-                Cor = "#FF0000",
-                HoraAbertura = "08:00",
-                HoraFechamento = "22:00",
-                FilialId = filial.Id,
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-
+            var local = LocalSeedData.GetLocalExemplo(filial.Id, tenantId);
             await _context.Locais.AddAsync(local);
+            await _context.SaveChangesAsync();
 
             // 7. Criar Reserva Exemplo
-            var reserva = new Reserva
-            {
-                Id = Guid.NewGuid(),
-                ClienteId = cliente.Id,
-                LocalId = local.Id,
-                DataInicio = DateTime.UtcNow.Date.AddDays(1).AddHours(10),
-                DataFim = DateTime.UtcNow.Date.AddDays(1).AddHours(11),
-                Situacao = SituacaoReserva.Confirmada,
-                Valor = 100.00m,
-                Observacoes = "Reserva teste",
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-
+            var reserva = ReservaSeedData.GetReservaExemplo(cliente.Id, local.Id, filial.Id, tenantId);
             await _context.Reservas.AddAsync(reserva);
+            await _context.SaveChangesAsync();
 
             // 8. Criar Recebível Exemplo
-            var recebivel = new Recebivel
-            {
-                Id = Guid.NewGuid(),
-                ClienteId = cliente.Id,
-                Descricao = "Recebimento teste",
-                Valor = 100.00m,
-                DataVencimento = DateTime.UtcNow.Date.AddDays(30),
-                Situacao = SituacaoRecebivel.Aberto,
-                ReservaId = reserva.Id,
-                TenantId = tenantId,
-                DataCriacao = DateTime.UtcNow
-            };
-
+            var recebivel = RecebivelSeedData.GetRecebivelExemplo(cliente.Id, reserva.Id, filial.Id, tenantId);
             await _context.Recebiveis.AddAsync(recebivel);
-
             await _context.SaveChangesAsync();
+
+            // 9. Seed relacionamentos de permissões e associação usuário-filial-grupo
+            if (grupoAdmin != null)
+            {
+                await SeedRelacionamentosPermissoesAsync(grupoAdmin, filial.Id, usuarioAdmin.Id);
+            }
         }
 
-        private List<Permissao> CriarPermissoesModulo(string moduloPai, (string nome, string descricao)[] permissoes)
+        private async Task SeedRelacionamentosPermissoesAsync(GrupoPermissao grupoAdmin, Guid filialId, Guid usuarioAdminId)
         {
-            var lista = new List<Permissao>();
-            var tenantId = 1; // Tenant padrão
+            // Evitar duplicidade: só semear se ainda não houver relações
+            var jaTemModuloAcoes = await _context.GruposPermissoesModulosAcoes.AnyAsync(g => g.GrupoId == grupoAdmin.Id);
+            var jaTemSubmoduloAcoes = await _context.GruposPermissoesSubmodulosAcoes.AnyAsync(g => g.GrupoId == grupoAdmin.Id);
+            var jaTemUsuarioFilialGrupo = await _context.UsuariosFiliaisGrupos.AnyAsync(u => u.UsuarioId == usuarioAdminId && u.FilialId == filialId);
 
-            foreach (var (nome, descricao) in permissoes)
+            // Buscar ações necessárias
+            var acoes = await _context.Acoes.ToListAsync();
+            var acaoAcesso = acoes.FirstOrDefault(a => a.Nome == "Acesso")?.Id;
+            var acaoVisualizar = acoes.FirstOrDefault(a => a.Nome == "Visualizar")?.Id;
+            var acaoCriar = acoes.FirstOrDefault(a => a.Nome == "Criar")?.Id;
+            var acaoEditar = acoes.FirstOrDefault(a => a.Nome == "Editar")?.Id;
+            var acaoExcluir = acoes.FirstOrDefault(a => a.Nome == "Excluir")?.Id;
+
+            // Garantir que tenhamos ao menos Visualizar para funcionamento básico
+            if (acaoVisualizar == null)
+                return;
+
+            // Conceder permissões em Módulos (Visualizar)
+            if (!jaTemModuloAcoes)
             {
-                var (submodulo, acao) = ParsePermissao(nome);
-
-                lista.Add(new Permissao
+                var modulos = await _context.Modulos.ToListAsync();
+                var entradasModulo = new List<GrupoPermissaoModuloAcao>();
+                foreach (var modulo in modulos)
                 {
-                    Id = Guid.NewGuid(),
-                    Nome = $"{moduloPai}.{nome}",
-                    Descricao = descricao,
-                    ModuloPai = moduloPai,
-                    Submodulo = submodulo,
-                    Acao = acao,
-                    Situacao = Domain.Enums.geral.SituacaoBase.Ativo,
-                    TenantId = tenantId,
-                    DataCriacao = DateTime.UtcNow
-                });
+                    entradasModulo.Add(new GrupoPermissaoModuloAcao
+                    {
+                        Id = Guid.NewGuid(),
+                        GrupoId = grupoAdmin.Id,
+                        ModuloId = modulo.Id,
+                        AcaoId = acaoVisualizar.Value,
+                        DataCriacao = DateTime.UtcNow
+                    });
+                }
+                // Também conceder Acesso se existir
+                if (acaoAcesso.HasValue)
+                {
+                    foreach (var modulo in modulos)
+                    {
+                        entradasModulo.Add(new GrupoPermissaoModuloAcao
+                        {
+                            Id = Guid.NewGuid(),
+                            GrupoId = grupoAdmin.Id,
+                            ModuloId = modulo.Id,
+                            AcaoId = acaoAcesso.Value,
+                            DataCriacao = DateTime.UtcNow
+                        });
+                    }
+                }
+                await _context.GruposPermissoesModulosAcoes.AddRangeAsync(entradasModulo);
+                await _context.SaveChangesAsync();
             }
 
-            return lista;
-        }
+            // Conceder permissões em Submódulos (CRUD + Visualizar, se ações existirem)
+            if (!jaTemSubmoduloAcoes)
+            {
+                var submodulos = await _context.Submodulos.ToListAsync();
+                var entradasSubmodulo = new List<GrupoPermissaoSubmoduloAcao>();
+                foreach (var sub in submodulos)
+                {
+                    // Visualizar sempre
+                    entradasSubmodulo.Add(new GrupoPermissaoSubmoduloAcao
+                    {
+                        Id = Guid.NewGuid(),
+                        GrupoId = grupoAdmin.Id,
+                        SubmoduloId = sub.Id,
+                        AcaoId = acaoVisualizar!.Value,
+                        DataCriacao = DateTime.UtcNow
+                    });
+                    // CRUD quando disponível
+                    if (acaoCriar.HasValue)
+                        entradasSubmodulo.Add(new GrupoPermissaoSubmoduloAcao { Id = Guid.NewGuid(), GrupoId = grupoAdmin.Id, SubmoduloId = sub.Id, AcaoId = acaoCriar.Value, DataCriacao = DateTime.UtcNow });
+                    if (acaoEditar.HasValue)
+                        entradasSubmodulo.Add(new GrupoPermissaoSubmoduloAcao { Id = Guid.NewGuid(), GrupoId = grupoAdmin.Id, SubmoduloId = sub.Id, AcaoId = acaoEditar.Value, DataCriacao = DateTime.UtcNow });
+                    if (acaoExcluir.HasValue)
+                        entradasSubmodulo.Add(new GrupoPermissaoSubmoduloAcao { Id = Guid.NewGuid(), GrupoId = grupoAdmin.Id, SubmoduloId = sub.Id, AcaoId = acaoExcluir.Value, DataCriacao = DateTime.UtcNow });
+                }
+                await _context.GruposPermissoesSubmodulosAcoes.AddRangeAsync(entradasSubmodulo);
+                await _context.SaveChangesAsync();
+            }
 
-        private (string submodulo, string acao) ParsePermissao(string nome)
-        {
-            if (nome == "acesso")
-                return ("", "acesso");
-
-            var partes = nome.Split('.');
-            if (partes.Length == 2)
-                return (partes[0], partes[1]);
-
-            return ("", nome);
+            // Associar usuário admin ao grupo e filial
+            if (!jaTemUsuarioFilialGrupo)
+            {
+                var assoc = new UsuarioFilialGrupo
+                {
+                    Id = Guid.NewGuid(),
+                    UsuarioId = usuarioAdminId,
+                    FilialId = filialId,
+                    GrupoId = grupoAdmin.Id,
+                    DataCriacao = DateTime.UtcNow
+                };
+                await _context.UsuariosFiliaisGrupos.AddAsync(assoc);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

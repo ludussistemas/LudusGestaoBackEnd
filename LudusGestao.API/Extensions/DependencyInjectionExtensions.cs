@@ -4,8 +4,10 @@ using LudusGestao.Core.Interfaces.Repositories.Base;
 using LudusGestao.Domain.Interfaces.Repositories;
 using LudusGestao.Domain.Interfaces.Repositories.eventos;
 using LudusGestao.Domain.Interfaces.Repositories.geral;
+using LudusGestao.Domain.Interfaces.Repositories.geral.permissao;
 using LudusGestao.Domain.Interfaces.Services;
 using LudusGestao.Domain.Interfaces.Services.geral;
+using LudusGestao.Domain.Interfaces.Services.geral.permissao;
 using LudusGestao.Domain.Interfaces.Services.infra;
 using LudusGestao.Infrastructure.Data.Repositories.Base;
 using LudusGestao.Infrastructure.Data.Repositories.Base.Filters;
@@ -24,6 +26,7 @@ namespace LudusGestao.API.Extensions
             // Tenant e contexto HTTP
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ITenantService, TenantService>();
+            services.AddScoped<LudusGestao.Domain.Interfaces.Services.infra.IFilialService, CurrentFilialService>();
 
             // Seed e HttpClient
             services.AddScoped<LudusGestao.Domain.Interfaces.Services.infra.ISeedService, LudusGestao.Infrastructure.Data.Seed.SeedService>();
@@ -36,6 +39,7 @@ namespace LudusGestao.API.Extensions
 
             // Filtros e ordenadores
             services.AddScoped(typeof(ITenantFilter<>), typeof(TenantFilter<>));
+            services.AddScoped(typeof(LudusGestao.Infrastructure.Data.Repositories.Base.FilialFilter<>));
             services.AddScoped(typeof(IQuerySorter<>), typeof(QuerySorter<>));
 
             // Serviços de permissões
@@ -62,7 +66,7 @@ namespace LudusGestao.API.Extensions
             services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.reserva.Cliente.ClienteDTO, LudusGestao.Application.DTOs.reserva.Cliente.CreateClienteDTO, LudusGestao.Application.DTOs.reserva.Cliente.UpdateClienteDTO>, ClienteService>();
 
             services.AddScoped<IFilialRepository, FilialRepository>();
-            services.AddScoped<FilialService>();
+            services.AddScoped<CurrentFilialService>();
             services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.Filial.FilialDTO, LudusGestao.Application.DTOs.Filial.CreateFilialDTO, LudusGestao.Application.DTOs.Filial.UpdateFilialDTO>, FilialService>();
 
             services.AddScoped<ILocalRepository, LocalRepository>();
@@ -74,9 +78,7 @@ namespace LudusGestao.API.Extensions
             services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.evento.Recebivel.RecebivelDTO, LudusGestao.Application.DTOs.evento.Recebivel.CreateRecebivelDTO, LudusGestao.Application.DTOs.evento.Recebivel.UpdateRecebivelDTO>, RecebivelService>();
 
             // Serviços de permissões refatorados
-            services.AddScoped<IPermissaoVerificacaoService, PermissaoVerificacaoService>();
-            services.AddScoped<IFilialAcessoService, FilialAcessoService>();
-            services.AddScoped<IModuloAcessoService, ModuloAcessoService>();
+            services.AddScoped<IPermissaoAcessoService, LudusGestao.Application.Services.geral.permissao.PermissaoAcessoService>();
 
             // Handlers de exceção
             services.AddScoped<IExceptionHandler, UnauthorizedExceptionHandler>();
@@ -93,17 +95,17 @@ namespace LudusGestao.API.Extensions
             services.AddScoped<UsuarioService>();
             services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.Usuario.UsuarioDTO, LudusGestao.Application.DTOs.Usuario.CreateUsuarioDTO, LudusGestao.Application.DTOs.Usuario.UpdateUsuarioDTO>, UsuarioService>();
 
-            services.AddScoped<IPermissaoRepository, PermissaoRepository>();
-            services.AddScoped<PermissaoService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.geral.Permissao.PermissaoDTO, LudusGestao.Application.DTOs.geral.Permissao.CreatePermissaoDTO, LudusGestao.Application.DTOs.geral.Permissao.UpdatePermissaoDTO>, PermissaoService>();
+            services.AddScoped<IGrupoPermissaoRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.GrupoPermissaoRepository>();
+            services.AddScoped<LudusGestao.Application.Services.geral.permissao.GrupoPermissaoService>();
+            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.geral.GrupoPermissao.GrupoPermissaoDTO, LudusGestao.Application.DTOs.geral.GrupoPermissao.CreateGrupoPermissaoDTO, LudusGestao.Application.DTOs.geral.GrupoPermissao.UpdateGrupoPermissaoDTO>, LudusGestao.Application.Services.geral.permissao.GrupoPermissaoService>();
 
-            services.AddScoped<IGrupoPermissaoRepository, GrupoPermissaoRepository>();
-            services.AddScoped<GrupoPermissaoService>();
-            services.AddScoped<LudusGestao.Core.Interfaces.Services.IBaseCrudService<LudusGestao.Application.DTOs.geral.GrupoPermissao.GrupoPermissaoDTO, LudusGestao.Application.DTOs.geral.GrupoPermissao.CreateGrupoPermissaoDTO, LudusGestao.Application.DTOs.geral.GrupoPermissao.UpdateGrupoPermissaoDTO>, GrupoPermissaoService>();
-
-            // Repositórios de permissões por filial
-            services.AddScoped<IGrupoPermissaoFilialRepository, GrupoPermissaoFilialRepository>();
-            services.AddScoped<IUsuarioPermissaoFilialRepository, UsuarioPermissaoFilialRepository>();
+            // Novos repositórios de permissões
+            services.AddScoped<IModuloRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.ModuloRepository>();
+            services.AddScoped<ISubmoduloRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.SubmoduloRepository>();
+            services.AddScoped<IAcaoRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.AcaoRepository>();
+            services.AddScoped<IGrupoPermissaoModuloAcaoRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.GrupoPermissaoModuloAcaoRepository>();
+            services.AddScoped<IGrupoPermissaoSubmoduloAcaoRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.GrupoPermissaoSubmoduloAcaoRepository>();
+            services.AddScoped<IUsuarioFilialGrupoRepository, LudusGestao.Infrastructure.Data.Repositories.geral.permissao.UsuarioFilialGrupoRepository>();
 
             // Serviços de autenticação
             services.AddScoped<LudusGestao.Domain.Interfaces.Services.autenticacao.IAuthService, LudusGestao.Infrastructure.Security.AuthService>();

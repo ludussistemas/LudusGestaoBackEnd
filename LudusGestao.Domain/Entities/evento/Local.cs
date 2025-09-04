@@ -4,7 +4,7 @@ using LudusGestao.Domain.Enums.eventos;
 
 namespace LudusGestao.Domain.Entities.eventos
 {
-    public class Local : BaseEntity, ITenantEntity
+    public class Local : BaseEntity, ITenantEntity, IFilialEntity
     {
         public string Nome { get; set; }
         public string Tipo { get; set; }
@@ -18,7 +18,6 @@ namespace LudusGestao.Domain.Entities.eventos
         public string HoraAbertura { get; set; }
         public string HoraFechamento { get; set; }
         public Guid FilialId { get; set; }
-        public Filial Filial { get; set; } = null!;
         public int TenantId { get; set; }
     }
 }

@@ -31,6 +31,8 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             var routeMapper = serviceProvider.GetRequiredService<IPermissionRouteMapper>();
             var validator = serviceProvider.GetRequiredService<IPermissionValidator>();
             var errorBuilder = serviceProvider.GetRequiredService<IErrorResponseBuilder>();
+            var permissaoAcessoService = serviceProvider.GetRequiredService<LudusGestao.Domain.Interfaces.Services.geral.permissao.IPermissaoAcessoService>();
+            var filialService = serviceProvider.GetRequiredService<LudusGestao.Domain.Interfaces.Services.infra.IFilialService>();
 
             // Verificar se o usuário está autenticado
             if (!context.User.Identity?.IsAuthenticated ?? true)
@@ -47,6 +49,29 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
                 return;
             }
 
+            // Extrair filial do header (obrigatório)
+            var filialId = ExtractFilial(context.Request);
+            var isGet = string.Equals(context.Request.Method, "GET", StringComparison.OrdinalIgnoreCase);
+            if (!filialId.HasValue && isGet)
+            {
+                await errorBuilder.BuildErrorResponseAsync(context, 400, "Informe a filial via header 'Filial' ou query 'filial'/'filialId'.");
+                return;
+            }
+
+            // Propagar a filial para o contexto de request (filtro global e repositórios)
+            if (filialId.HasValue)
+            {
+                filialService.SetFilialId(filialId.Value);
+            }
+
+            // Validar se o usuário possui acesso à filial informada
+            var possuiAcessoAFilial = await permissaoAcessoService.UsuarioTemAcessoAFilial(usuarioId.Value, filialId.Value);
+            if (!possuiAcessoAFilial)
+            {
+                await errorBuilder.BuildErrorResponseAsync(context, 403, "Usuário não possui acesso à filial informada.");
+                return;
+            }
+
             // Determinar a permissão necessária baseada na rota
             var permissaoNecessaria = routeMapper.GetRequiredPermission(context.Request.Method, path);
             if (string.IsNullOrEmpty(permissaoNecessaria))
@@ -57,7 +82,9 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             }
 
             // Verificar se o usuário tem a permissão necessária
-            var temPermissao = await validator.HasPermissionAsync(usuarioId.Value, permissaoNecessaria);
+            var temPermissao = filialId.HasValue
+                ? await validator.HasPermissionAsync(usuarioId.Value, filialId.Value, permissaoNecessaria)
+                : true;
             if (!temPermissao)
             {
                 await errorBuilder.BuildErrorResponseAsync(context, 403, $"Acesso negado. Permissão necessária: {permissaoNecessaria}");
@@ -68,7 +95,9 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             var moduloPai = routeMapper.GetParentModule(path);
             if (!string.IsNullOrEmpty(moduloPai))
             {
-                var temAcessoModulo = await validator.HasModuleAccessAsync(usuarioId.Value, moduloPai);
+                var temAcessoModulo = filialId.HasValue
+                    ? await validator.HasModuleAccessAsync(usuarioId.Value, filialId.Value, moduloPai)
+                    : true;
                 if (!temAcessoModulo)
                 {
                     await errorBuilder.BuildErrorResponseAsync(context, 403, $"Acesso negado ao módulo: {moduloPai}");
@@ -101,6 +130,30 @@ namespace LudusGestao.Infrastructure.Security.Middlewares
             {
                 return userId;
             }
+            return null;
+        }
+
+        private Guid? ExtractFilial(HttpRequest request)
+        {
+            // Tentar extrair do header obrigatório "Filial"
+            if (request.Headers.TryGetValue("Filial", out var filialHeader))
+            {
+                if (Guid.TryParse(filialHeader.ToString(), out var filialId))
+                {
+                    return filialId;
+                }
+            }
+
+            // Alternativa: querystring ?filial=...
+            var filialQuery = request.Query["filial"].FirstOrDefault()
+                ?? request.Query["Filial"].FirstOrDefault()
+                ?? request.Query["filialId"].FirstOrDefault()
+                ?? request.Query["FilialId"].FirstOrDefault();
+            if (!string.IsNullOrWhiteSpace(filialQuery) && Guid.TryParse(filialQuery, out var filialIdFromQuery))
+            {
+                return filialIdFromQuery;
+            }
+
             return null;
         }
     }

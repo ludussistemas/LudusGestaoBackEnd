@@ -3,7 +3,7 @@ using LudusGestao.Domain.Enums.eventos;
 
 namespace LudusGestao.Domain.Entities.eventos
 {
-    public class Recebivel : BaseEntity, ITenantEntity
+    public class Recebivel : BaseEntity, ITenantEntity, IFilialEntity
     {
         public Guid ClienteId { get; set; }
         public Cliente Cliente { get; set; } = null!;
@@ -13,6 +13,7 @@ namespace LudusGestao.Domain.Entities.eventos
         public SituacaoRecebivel Situacao { get; set; }
         public Guid? ReservaId { get; set; }
         public Reserva? Reserva { get; set; }
+        public Guid FilialId { get; set; }
         public int TenantId { get; set; }
     }
 }

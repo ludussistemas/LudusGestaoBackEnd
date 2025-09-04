@@ -1,4 +1,5 @@
 using LudusGestao.Core.Entities.Base;
+using LudusGestao.Domain.Entities.geral.permissao;
 using LudusGestao.Domain.Enums.geral;
 
 namespace LudusGestao.Domain.Entities.geral

@@ -3,6 +3,7 @@ using LudusGestao.Core.Exceptions;
 using LudusGestao.Core.Interfaces.Infrastructure;
 using LudusGestao.Domain.Entities.eventos;
 using LudusGestao.Domain.Entities.geral;
+using LudusGestao.Domain.Entities.geral.permissao;
 using LudusGestao.Domain.Interfaces.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -34,9 +35,12 @@ namespace LudusGestao.Infrastructure.Data.Context
         public DbSet<Recebivel> Recebiveis { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<GrupoPermissao> GruposPermissoes { get; set; }
-        public DbSet<Permissao> Permissoes { get; set; }
-        public DbSet<GrupoPermissaoFilial> GruposPermissoesFiliais { get; set; }
-        public DbSet<UsuarioPermissaoFilial> UsuariosPermissoesFiliais { get; set; }
+        public DbSet<Modulo> Modulos { get; set; }
+        public DbSet<Submodulo> Submodulos { get; set; }
+        public DbSet<Acao> Acoes { get; set; }
+        public DbSet<GrupoPermissaoModuloAcao> GruposPermissoesModulosAcoes { get; set; }
+        public DbSet<GrupoPermissaoSubmoduloAcao> GruposPermissoesSubmodulosAcoes { get; set; }
+        public DbSet<UsuarioFilialGrupo> UsuariosFiliaisGrupos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,6 +58,7 @@ namespace LudusGestao.Infrastructure.Data.Context
 
 
 
+
             // Configuração para List<string> Comodidades
             modelBuilder.Entity<Local>()
                 .Property(l => l.Comodidades)
@@ -66,28 +71,7 @@ namespace LudusGestao.Infrastructure.Data.Context
                     c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
                     c => c.ToList()));
 
-            // Configuração para List<Guid> Permissoes
-            modelBuilder.Entity<GrupoPermissaoFilial>()
-                .Property(g => g.Permissoes)
-                .HasConversion(
-                    v => string.Join(',', v),
-                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(Guid.Parse).ToList()
-                )
-                .Metadata.SetValueComparer(new ValueComparer<List<Guid>>(
-                    (c1, c2) => c1.SequenceEqual(c2),
-                    c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-                    c => c.ToList()));
 
-            modelBuilder.Entity<UsuarioPermissaoFilial>()
-                .Property(u => u.Permissoes)
-                .HasConversion(
-                    v => string.Join(',', v),
-                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(Guid.Parse).ToList()
-                )
-                .Metadata.SetValueComparer(new ValueComparer<List<Guid>>(
-                    (c1, c2) => c1.SequenceEqual(c2),
-                    c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-                    c => c.ToList()));
 
             // Configuração para propriedades opcionais
             modelBuilder.Entity<Usuario>()

@@ -13,6 +13,7 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
         protected readonly ITenantService _tenantService;
         protected readonly ITenantFilter<T> _tenantFilter;
         protected readonly IQuerySorter<T> _querySorter;
+        private readonly FilialFilter<T>? _filialFilter;
         protected readonly IEnumerable<IFilterStrategy> _filterStrategies;
 
         public BaseRepository(
@@ -20,19 +21,22 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
             ITenantService tenantService,
             ITenantFilter<T> tenantFilter,
             IQuerySorter<T> querySorter,
-            IEnumerable<IFilterStrategy> filterStrategies)
+            IEnumerable<IFilterStrategy> filterStrategies,
+            FilialFilter<T>? filialFilter = null)
         {
             _context = context;
             _tenantService = tenantService;
             _tenantFilter = tenantFilter;
             _querySorter = querySorter;
             _filterStrategies = filterStrategies;
+            _filialFilter = filialFilter;
         }
 
         public virtual async Task<T> ObterPorId(Guid id)
         {
             var query = _context.Set<T>().AsQueryable();
             query = ApplyTenantFilter(query);
+            query = ApplyFilialFilter(query);
             return await query.FirstOrDefaultAsync(e => EF.Property<Guid>(e, "Id") == id);
         }
 
@@ -101,6 +105,7 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
         {
             var query = _context.Set<T>().AsQueryable();
             query = ApplyTenantFilter(query);
+            query = ApplyFilialFilter(query);
             return await query.ToListAsync();
         }
 
@@ -115,6 +120,15 @@ namespace LudusGestao.Infrastructure.Data.Repositories.Base
             {
                 throw new UnauthorizedAccessException("Tenant não definido ou inválido.", ex);
             }
+        }
+
+        protected virtual IQueryable<T> ApplyFilialFilter(IQueryable<T> query)
+        {
+            if (_filialFilter != null)
+            {
+                return _filialFilter.Apply(query);
+            }
+            return query;
         }
     }
 }

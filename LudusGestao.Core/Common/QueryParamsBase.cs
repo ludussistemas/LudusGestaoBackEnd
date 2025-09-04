@@ -8,5 +8,6 @@ namespace LudusGestao.Core.Common
         public int Limit { get; set; } = 10;
         public string? Sort { get; set; }
         public string? Filter { get; set; }
+        public Guid? Filial { get; set; }
     }
 }
